@@ -1,5 +1,4 @@
 <?php include("includes/session.php"); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,12 +19,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Title -->
-	<title>Culinary Cove Admin Dashboard</title>
+	<title>Davur : Restaurant Admin Dashboard + FrontEnd</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
-	<link href="vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+	<link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<link href="../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 
@@ -109,7 +107,7 @@
 					</li>
 				</ul>
 				<ul>
-					<li class="nav-item active">
+					<li class="nav-item">
                         <a class="nav-link" href="front-dashboard.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -142,7 +140,7 @@
 						</svg> 
 						Wallet</a>
                     </li>
-					<li class="nav-item">
+					<li class="nav-item active">
                         <a class="nav-link" href="front-food-items.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -213,7 +211,7 @@
 						Terms & Conditions</a>
                     </li>
 					<li class="nav-item">
-                        <a class="nav-link" href="handle-logout.php">
+                        <a class="nav-link" href="front-login.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 								<rect x="0" y="0" width="24" height="24"/>
@@ -235,246 +233,266 @@
         <div class="content-wrapper">
             <!-- row -->
 			<div class="container-fluid">
+				<div class="form-head dashboard-head d-md-flex d-block mb-5 align-items-start">
+					<h2 class="dashboard-title me-auto">Food Items <a href="javascript:void(0);" class="btn btn-success btn-rounded ms-4 text-white d-inline-block flex-grow-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					Add New
+					</a></h2>
+					
+					<div class="input-group search-area">
+						<input type="text" class="form-control" placeholder="Search here...">
+						<span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+					</div>
+				</div>
+				
 				<div class="row">
-					<div class="col-xl-6">
-						<div id="user-activity" class="card">
-							<div class="card-header border-0 pb-0 d-sm-flex d-block">
-								<div>
-									<h2 class="main-title mb-1">Earnings</h2>
-								</div>
-								<div class="card-action card-tabs mt-3 mt-sm-0">
-									
-									 <ul class="nav nav-tabs" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#user" role="tab">
-                                                Monthly
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#user" role="tab">
-                                               Weekly
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#user" role="tab">
-                                               Today
-                                            </a>
-                                        </li>
-                                    </ul>
-								</div>
-							</div>
-							<div class="card-body">
-								<div class="tab-content" id="myTabContent">
-									<div class="tab-pane fade show active" id="user" role="tabpanel">
-										<canvas id="activity" class="chartjs"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="widget-card-1 card">
-									<div class="card-body">
-										<div class="media">
-											<img src="images/food-icon/1.png" alt="" class="me-4" width="80">
-											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">128</span></h3>
-												<p class="mb-0">Total Menus</p>
+					<div class="col-12">
+						<div class="table-responsive">
+							<table id="example5" class="display mb-4 defaultTable dataTablesCard" style="min-width: 845px;">
+								<thead>
+									<tr>
+										<th>ITEM NAME</th>
+										<th>CATEGORY</th>
+										<th>ADD-ONS</th>
+										<th>PRICE</th>
+										<th>SALES</th>
+										<th class="text-end">ACTION</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>Veg Burger</strong></td>
+										<td>Fast Food</td>
+										<td>3 <i class="fa fa-list ms-1"></i></td>
+										<td>$12.00</td>
+										<td>112</td>
+										<td>
+											<div class="action-buttons d-flex justify-content-end">
+												<a href="javascript:void(0);" class="btn btn-primary light me-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>
+															<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+														</g>
+													</svg>
+												</a>
+												<a href="javascript:void(0);" class="btn btn-danger light">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>
+															<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</a>
 											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="widget-card-1 card">
-									<div class="card-body">
-										<div class="media">
-											<img src="images/food-icon/2.png" alt="" class="me-4" width="80">
-											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">400</span></h3>
-												<p class="mb-0">Revenue</p>
+										</td>												
+									</tr>
+									<tr>
+										<td><strong>Cheese Burger</strong></td>
+										<td>Fast Food</td>
+										<td>3 <i class="fa fa-list ms-1"></i></td>
+										<td>$12.00</td>
+										<td>112</td>
+										<td>
+											<div class="action-buttons d-flex justify-content-end">
+												<a href="javascript:void(0);" class="btn btn-primary light me-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>
+															<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+														</g>
+													</svg>
+												</a>
+												<a href="javascript:void(0);" class="btn btn-danger light">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>
+															<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</a>
 											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="widget-card-1 card">
-									<div class="card-body">
-										<div class="media">
-											<img src="images/food-icon/3.png" alt="" class="me-4" width="80">
-											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">678</span></h3>
-												<p class="mb-0">Items Sold</p>
+										</td>												
+									</tr>
+									<tr>
+										<td><strong>Cheese Sandwich</strong></td>
+										<td>Fast Food</td>
+										<td>3 <i class="fa fa-list ms-1"></i></td>
+										<td>$12.00</td>
+										<td>112</td>
+										<td>
+											<div class="action-buttons d-flex justify-content-end">
+												<a href="javascript:void(0);" class="btn btn-primary light me-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>
+															<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+														</g>
+													</svg>
+												</a>
+												<a href="javascript:void(0);" class="btn btn-danger light">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>
+															<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</a>
 											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="widget-card-1 card">
-									<div class="card-body">
-										<div class="media">
-											<img src="images/food-icon/4.png" alt="" class="me-4" width="80">
-											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">128</span></h3>
-												<p class="mb-0">Total Orders</p>
+										</td>												
+									</tr>
+									<tr>
+										<td><strong>Momos masala</strong></td>
+										<td>Fast Food</td>
+										<td>3 <i class="fa fa-list ms-1"></i></td>
+										<td>$12.00</td>
+										<td>112</td>
+										<td>
+											<div class="action-buttons d-flex justify-content-end">
+												<a href="javascript:void(0);" class="btn btn-primary light me-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>
+															<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+														</g>
+													</svg>
+												</a>
+												<a href="javascript:void(0);" class="btn btn-danger light">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>
+															<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</a>
 											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6">
-						<div class="row">
-							<div class="col-xl-12">
-								<div class="card">
-									<div class="card-body">
-										<div id="chart" class="d-inline-block donut-chart-d"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-12">
-								<div class="card">
-									<div class="card-header border-0 d-sm-flex d-block">
-										<div>
-											<h2 class="main-title text-black mb-1">Orders from</h2>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="progress-bar-box">
-											<div class="img-bx me-3">
-												<img src="images/food-icon/8.png" alt="" class="img-fluid">
+										</td>												
+									</tr>
+									<tr>
+										<td><strong>Veg Burger</strong></td>
+										<td>Fast Food</td>
+										<td>3 <i class="fa fa-list ms-1"></i></td>
+										<td>$12.00</td>
+										<td>112</td>
+										<td>
+											<div class="action-buttons d-flex justify-content-end">
+												<a href="javascript:void(0);" class="btn btn-primary light me-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>
+															<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+														</g>
+													</svg>
+												</a>
+												<a href="javascript:void(0);" class="btn btn-danger light">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>
+															<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</a>
 											</div>
-											<div class="bar-box d-flex w-100 align-items-center">
-												<h3 class="text-nowrap name mb-0">Dine-in</h3>
-												<div class="progress" style="width: 100%">
-													<div class="progress-bar bg-warning" role="progressbar" style="width: 92%;"></div>
-												</div>
-												<span class="text-end percentage">602 <span>(92%)</span></span>
+										</td>												
+									</tr>
+									<tr>
+										<td><strong>Pizza slice</strong></td>
+										<td>Fast Food</td>
+										<td>3 <i class="fa fa-list ms-1"></i></td>
+										<td>$12.00</td>
+										<td>112</td>
+										<td>
+											<div class="action-buttons d-flex justify-content-end">
+												<a href="javascript:void(0);" class="btn btn-primary light me-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>
+															<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+														</g>
+													</svg>
+												</a>
+												<a href="javascript:void(0);" class="btn btn-danger light">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>
+															<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</a>
 											</div>
-										</div>
-										<div class="progress-bar-box">
-											<div class="img-bx me-3">
-												<img src="images/food-icon/9.png" alt="" class="img-fluid">
+										</td>												
+									</tr>
+									<tr>
+										<td><strong>French fries</strong></td>
+										<td>Fast Food</td>
+										<td>3 <i class="fa fa-list ms-1"></i></td>
+										<td>$12.00</td>
+										<td>112</td>
+										<td>
+											<div class="action-buttons d-flex justify-content-end">
+												<a href="javascript:void(0);" class="btn btn-primary light me-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>
+															<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+														</g>
+													</svg>
+												</a>
+												<a href="javascript:void(0);" class="btn btn-danger light">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>
+															<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</a>
 											</div>
-											<div class="bar-box d-flex w-100 align-items-center">
-												<h3 class="text-nowrap name mb-0">Takeaway</h3>
-												<div class="progress" style="width: 100%">
-													<div class="progress-bar bg-warning" role="progressbar" style="width: 8%;"></div>
-												</div>
-												<span class="text-end percentage">52 <span>(8%)</span></span>
+										</td>												
+									</tr>
+									<tr>
+										<td><strong>Cheese Sandwich</strong></td>
+										<td>Fast Food</td>
+										<td>3 <i class="fa fa-list ms-1"></i></td>
+										<td>$12.00</td>
+										<td>112</td>
+										<td>
+											<div class="action-buttons d-flex justify-content-end">
+												<a href="javascript:void(0);" class="btn btn-primary light me-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>
+															<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+														</g>
+													</svg>
+												</a>
+												<a href="javascript:void(0);" class="btn btn-danger light">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>
+															<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</a>
 											</div>
-										</div>
-										<div class="progress-bar-box">
-											<div class="img-bx me-3">
-												<img src="images/food-icon/10.png" alt="" class="img-fluid">
-											</div>
-											<div class="bar-box d-flex w-100 align-items-center">
-												<h3 class="text-nowrap name mb-0">Online</h3>
-												<div class="progress" style="width: 100%">
-													<div class="progress-bar bg-warning" role="progressbar" style="width: 5%;"></div>
-												</div>
-												<span class="text-end percentage">3.1k <span>(5%)</span></span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6">
-						<div class="row">
-							<div class="col-xl-12">
-								<div class="card">
-									<div class="card-header border-0 d-sm-flex d-block">
-										<div>
-											<h2 class="main-title text-black mb-1">Top Selling items</h2>
-										</div>
-									</div>
-									<div class="card-body pt-3">
-										<div class="media mb-3 pb-3 items-list-2 align-items-center">
-											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic5.jpg" alt="DexignZone"></a>
-											<div class="media-body col-6 px-0">
-												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">Italiano pizza</h3>
-												<span class="font-w500 mb-3">124 times</span>
-											</div>
-											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
-												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
-												<div class="dropdown ms-3 ">
-													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
-														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-													</button>
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="media  mb-3 pb-3 items-list-2 align-items-center">
-											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic4.jpg" alt="DexignZone"></a>
-											<div class="media-body col-6 px-0">
-												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">Cheese Momos</h3>
-												<span class="font-w500 mb-3">116 times</span>
-											</div>
-											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
-												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
-												<div class="dropdown ms-3 ">
-													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
-														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-													</button>
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="media mb-3 pb-3 items-list-2 align-items-center">
-											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic3.jpg" alt="DexignZone"></a>
-											<div class="media-body col-6 px-0">
-												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">French fries</h3>
-												<span class="font-w500 mb-3">200 times</span>
-											</div>
-											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
-												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
-												<div class="dropdown ms-3 ">
-													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
-														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-													</button>
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="media mb-3 pb-3 items-list-2 align-items-center">
-											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic2.jpg" alt="DexignZone"></a>
-											<div class="media-body col-6 px-0">
-												<h3 class="mt-0 mb-3 sub-title">Cheese Sandwich</h3>
-												<span class="font-w500 mb-3">50 times</span>
-											</div>
-											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
-												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
-												<div class="dropdown ms-3 ">
-													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
-														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-													</button>
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+										</td>												
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -483,6 +501,54 @@
         <!--**********************************
             Content body end
         ***********************************-->
+		
+		<!-- modal box -->
+		
+		<!-- Button trigger modal -->
+		
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-center">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalLabel">Add New Items</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  <div class="modal-body">
+				<div class="row">
+					<div class="col-xl-6">
+						<div class="mb-3">
+						  <label for="exampleFormControlInput1" class="form-label">Items Name</label>
+						  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Cheese Burger">
+						</div>
+						<div class="mb-3">
+						  <label for="exampleFormControlInput1" class="form-label">PRICE</label>
+						  <input type="number" class="form-control" id="exampleFormControlInput2" placeholder="$12.00">
+						</div>
+					</div>
+					<div class="col-xl-6">
+						<div class="mb-3">
+						  <label for="exampleFormControlInput3" class="form-label">SALES</label>
+						  <input type="number" class="form-control" id="exampleFormControlInput3" placeholder="112">
+						</div>
+						 <label for="exampleFormControlInput3" class="form-label">CATEGORY</label>
+						<select class="default-select" aria-label="Default select example">
+						  <option selected>CATEGORY</option>
+						  <option value="1">Fast Food</option>
+						  <option value="2">Dinner</option>
+						  <option value="3">Lunch</option>
+						</select>
+					</div>
+				</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
 
         <!--**********************************
             Footer start
@@ -513,21 +579,35 @@
     <!-- Required vendors -->
     <script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="js/custom.min.js"></script>
+	<script src="js/deznav-init.js"></script>
 	
 	<!-- Counter Up -->
     <script src="vendor/waypoints/jquery.waypoints.min.js"></script>
-    <script src="vendor/jquery.counterup/jquery.counterup.min.js"></script>	
+    <script src="vendor/jquery.counterup/jquery.counterup.min.js"></script>
 	
-	<!-- Apex Chart -->
-	<script src="vendor/apexchart/apexchart.js"></script>
+	<!-- Datatable -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
 	
-	<script src="vendor/owl-carousel/owl.carousel.js"></script>
-	<script src="vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js"></script>
-	<!-- Dashboard 1 -->
-	<script src="js/dashboard/dashboard.js"></script>
-    <script src="js/custom.min.js"></script>
-	<script src="js/deznav-init.js"></script>
+	
+	<script>
+	(function($) {
+	 
+		var table = $('#example5').DataTable({
+			searching: false,
+			paging:true,
+			select: false,
+			//info: false,         
+			lengthChange:false 
+			
+		});
+		$('#example tbody').on('click', 'tr', function () {
+			var data = table.row( this ).data();
+			
+		});
+	   
+	})(jQuery);
+	</script>
 	
 </body>
 
