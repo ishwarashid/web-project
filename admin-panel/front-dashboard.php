@@ -19,13 +19,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Title -->
-	<title>Davur : Restaurant Admin Dashboard + FrontEnd</title>
+	<title>Culinary Cove Admin Dashboard</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
 	<link href="vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
-	 <link rel="stylesheet" href="vendor/swiper/css/swiper-bundle.css">
     <link href="css/style.css" rel="stylesheet">
 	<link href="../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 
@@ -49,7 +48,7 @@
     <!--**********************************
         Main wrapper start
     ***********************************-->
-    <div id="main-wrapper" class="overflow-unset">
+    <div id="main-wrapper">
 	
 	
 	<?php include 'includes/header.php'; ?>
@@ -59,7 +58,7 @@
 		<div class="menu-sidebar">
 			<div class="contact-box">
 				<ul class="home-nav">
-					<li class="nav-item active">
+					<li class="nav-item">
 						<a href="front-home.php">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -109,7 +108,7 @@
 					</li>
 				</ul>
 				<ul>
-					<li class="nav-item">
+					<li class="nav-item active">
                         <a class="nav-link" href="front-dashboard.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -213,7 +212,7 @@
 						Terms & Conditions</a>
                     </li>
 					<li class="nav-item">
-                        <a class="nav-link" href="front-login.php">
+                        <a class="nav-link" href="handle-logout.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 								<rect x="0" y="0" width="24" height="24"/>
@@ -234,370 +233,243 @@
         ***********************************-->
         <div class="content-wrapper">
             <!-- row -->
-			<div class="listcontent-area">
-				<aside class="cart-area  dz-scroll" id="cart_area">
-					<div class="" >
-						<div class="h-100" id="home-counter">
-							<div class="card">
-								<div class="card-body">
-									<img src="images/counter.jpg" class="img-fluid mb-5" alt="">
-									<h3 class="title mb-4">Your Order in Progress Check Order</h3>
-									<p class="mb-sm-5 mb-3">Click on any item or Add Order Button to create order</p>
-									<a href="javascript:void(0);" id="add-order" class="btn btn-warning btn-rounded me-3">Add Order</a>
-									<a href="front-orders_status.php" class="btn btn-warning light btn-rounded">Order Status</a>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xl-6">
+						<div id="user-activity" class="card">
+							<div class="card-header border-0 pb-0 d-sm-flex d-block">
+								<div>
+									<h2 class="main-title mb-1">Earnings</h2>
+								</div>
+								<div class="card-action card-tabs mt-3 mt-sm-0">
+									
+									 <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#user" role="tab">
+                                                Monthly
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#user" role="tab">
+                                               Weekly
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#user" role="tab">
+                                               Today
+                                            </a>
+                                        </li>
+                                    </ul>
 								</div>
 							</div>
-						</div>
-						<div class="h-100" id="add-order-content">
-							<div class="card rounded-0">
-								<div class="card-body p-0">
-									<div class="table-responsive">
-										<table class="table text-black">
-											<thead>
-												<tr>
-													<th>ITEM</th>
-													<th>PRICE</th>
-													<th>QNT.</th>
-													<th>TOTAL($)</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><span class="font-w500">Farm Ville Pizza</span></td>
-													<td>12.00</td>
-													<td>
-														<div class="quantity btn-quantity style-1">
-															<input id="demo_vertical2" type="text" value="1" name="demo_vertical2">
-														</div>
-													</td>
-													<td>12.00</td>
-												</tr>
-												<tr>
-													<td><span class="font-w500">Cheese Burst Sandwich</span></td>
-													<td>8.00</td>
-													<td>
-														<div class="quantity btn-quantity style-1">
-															<input id="demo_vertical21" type="text" value="3" name="demo_vertical21">
-														</div>
-													</td>
-													<td>8.00</td>
-												</tr>
-												<tr>
-													<td><span class="font-w500">White Source Pasta</span></td>
-													<td>10.00</td>
-													<td>
-														<div class="quantity btn-quantity style-1">
-															<input id="demo_vertical22" type="text" value="2" name="demo_vertical22">
-														</div>
-													</td>
-													<td>10.00</td>
-												</tr>
-												<tr>
-													<td><span class="font-w500">Veg Cheese Burger</span></td>
-													<td>6.50</td>
-													<td>
-														<div class="quantity btn-quantity style-1">
-															<input id="demo_vertical23" type="text" value="1" name="demo_vertical23">
-														</div>
-													</td>
-													<td>6.50</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-							<div class="card-order-footer">
-								<div class="amount-details">
-									<h5 class="d-flex text-right mb-3">
-										<span class="text">Sub total </span>
-										<span class="me-0 ms-auto">43.00</span>
-									</h5>
-									<h5 class="d-flex text-right mb-3">
-										<span class="text">Tax</span>
-										<span class="me-0 ms-auto"> 3.00</span>
-									</h5>
-									<h5 class="d-flex text-right mb-3">
-										<span class="text">Other Charge</span>
-										<span class="me-0 ms-auto">0.00</span>
-									</h5>
-								</div>
-								<div class="amount-payble">
-									<h5 class="d-flex text-right mb-0">
-										<span class="text">Amount to Pay</span>
-										<span class="me-0 ms-auto">46.00</span>
-									</h5>
-								</div>
-
-								<div class="btn_box">
-									<div class="row no-gutter mx-0">
-										<a href="javascript:void(0);" id="home-counter-tab" class="btn btn-danger btn-block col-6 m-0 rounded-0">Cancel</a>
-										<a href="javascript:void(0);" id="place-order-tab" class="btn btn-primary btn-block col-6 m-0 rounded-0">Place Order</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="h-100" id="place-order" >
-							<div class="card rounded-0">
-								<div class="card-body">
-									<form>
-										<h4 class="mb-4">Amount to Pay <strong> $46.00 </strong></h4>
-										<div class="form-group mb-4 pb-2">
-											<label class="font-w600">Select Payment Method</label>
-											<div class="row no-gutters align-items-center">
-												<div class="col-6 col-sm-6 col-md-6 col-lg-4">
-													<div class="custom-control custom-radio">
-														<input checked="" type="radio" id="cash" name="PaymentMethod" class="custom-control-input">
-														<label class="custom-control-label" for="cash"><span class="ms-2">Cash</span></label>
-													</div>
-												</div>
-												<div class="col-6 col-sm-6 col-md-6 col-lg-4">
-													<div class="custom-control custom-radio">
-														<input type="radio" id="card" name="PaymentMethod" class="custom-control-input">
-														<label class="custom-control-label" for="card"><span class="ms-2">Card</span></label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group mb-4 pb-2">
-											<label class="font-w600">Order type</label>
-											<div class="row no-gutters align-items-center">
-												<div class="col-6 col-sm-6 col-md-6 col-lg-4">
-													<div class="custom-control custom-radio">
-														<input checked="" type="radio" id="takeaway" name="OrderType" class="custom-control-input">
-														<label class="custom-control-label" for="takeaway"><span class="ms-2">Takeaway</span></label>
-													</div>
-												</div>
-												<div class="col-6 col-sm-6 col-md-6 col-lg-4">
-													<div class="custom-control custom-radio">
-														<input type="radio" id="dine-in" name="OrderType" class="custom-control-input">
-														<label class="custom-control-label" for="dine-in"><span class="ms-2">Dine-in</span></label>
-													</div>
-												</div>
-
-												<div class="col-12 col-sm-12 col-md-6 col-lg-4">
-													<div class="select_box style-1 w-100 d-flex">
-														<select class="default-select">
-															<option>Select Table</option>
-															<option>Table No 01</option>
-															<option>Table No 02</option>
-															<option>Table No 03</option>
-															<option>Table No 04</option>
-															<option>Table No 05</option>
-															<option>Table No 06</option>
-															<option>Table No 07</option>
-															<option>Table No 08</option>
-															<option>Table No 09</option>
-															<option>Table No 10</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="font-w600">Customer Info (Optional)</label>
-											<input type="text" class="form-control solid" placeholder="Enter Full Name">
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control solid" placeholder="Enter Phone Number">
-										</div>
-									</form>
-								</div>
-							</div>
-							<div class="card-order-footer">
-								<div class="btn_box">
-									<div class="row no-gutter mx-0">
-										<a href="javascript:void(0);" id="place-order-cancel" class="btn btn-danger btn-block col-6 m-0 rounded-0">Cancel</a>
-										<a href="front-home.php" class="btn btn-primary btn-block col-6 m-0 rounded-0">Submit</a>
+							<div class="card-body">
+								<div class="tab-content" id="myTabContent">
+									<div class="tab-pane fade show active" id="user" role="tabpanel">
+										<canvas id="activity" class="chartjs"></canvas>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</aside>
-                <div class="row">
-					<div class="col-xl-12">
-						<div class="owl-carousel item-carousel">
-							<div class="items">
-								<div class="item-box">
-									<img src="images/food-icon/1.png" alt="">
-									<h5 class="title mb-0">soft drink</h5>
-								</div>
-							</div>
-							<div class="items">
-								<div class="item-box active">
-									<img src="images/food-icon/2.png" alt="">
-									<h5 class="title mb-0">fast food</h5>
-								</div>
-							</div>
-							<div class="items">
-								<div class="item-box">
-									<img src="images/food-icon/3.png" alt="">
-									<h5 class="title mb-0">pastry</h5>
-								</div>
-							</div>
-							<div class="items">
-								<div class="item-box">
-									<img src="images/food-icon/4.png" alt="">
-									<h5 class="title mb-0">burger</h5>
-								</div>
-							</div>
-							<div class="items">
-								<div class="item-box">
-									<img src="images/food-icon/5.png" alt="">
-									<h5 class="title mb-0">chinese</h5>
-								</div>
-							</div>
-							<div class="items">
-								<div class="item-box">
-									<img src="images/food-icon/6.png" alt="">
-									<h5 class="title mb-0">vegetable</h5>
-								</div>
-							</div>
-							<div class="items">
-								<div class="item-box">
-									<img src="images/food-icon/7.png" alt="">
-									<h5 class="title mb-0">watermelon</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-12">
-						<div class="input-group search-area style-1 mb-4">
-							<input type="text" class="form-control" placeholder="Search here...">
-							<div class="input-group-append">
-								<button class=" btn btn-primary btn-rounded">Search<i class="flaticon-381-search-2 scale3 ms-3"></i></button>
-							</div>
-						</div>
+					<div class="col-xl-6">
 						<div class="row">
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/1.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">Cheese Burger</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+							<div class="col-sm-6">
+								<div class="widget-card-1 card">
+									<div class="card-body">
+										<div class="media">
+											<img src="images/food-icon/1.png" alt="" class="me-4" width="80">
+											<div class="media-body">
+												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">128</span></h3>
+												<p class="mb-0">Total Menus</p>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/2.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">French fries</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+							<div class="col-sm-6">
+								<div class="widget-card-1 card">
+									<div class="card-body">
+										<div class="media">
+											<img src="images/food-icon/2.png" alt="" class="me-4" width="80">
+											<div class="media-body">
+												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">400</span></h3>
+												<p class="mb-0">Revenue</p>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/3.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">Veg Pizza</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+							<div class="col-sm-6">
+								<div class="widget-card-1 card">
+									<div class="card-body">
+										<div class="media">
+											<img src="images/food-icon/3.png" alt="" class="me-4" width="80">
+											<div class="media-body">
+												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">678</span></h3>
+												<p class="mb-0">Items Sold</p>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/4.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">Cheese Pizza</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+							<div class="col-sm-6">
+								<div class="widget-card-1 card">
+									<div class="card-body">
+										<div class="media">
+											<img src="images/food-icon/4.png" alt="" class="me-4" width="80">
+											<div class="media-body">
+												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">128</span></h3>
+												<p class="mb-0">Total Orders</p>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/5.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">Veg Sandwich</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+						</div>
+					</div>
+					<div class="col-xl-6">
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="card">
+									<div class="card-body">
+										<div id="chart" class="d-inline-block donut-chart-d"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card">
+									<div class="card-header border-0 d-sm-flex d-block">
+										<div>
+											<h2 class="main-title text-black mb-1">Orders from</h2>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="progress-bar-box">
+											<div class="img-bx me-3">
+												<img src="images/food-icon/8.png" alt="" class="img-fluid">
+											</div>
+											<div class="bar-box d-flex w-100 align-items-center">
+												<h3 class="text-nowrap name mb-0">Dine-in</h3>
+												<div class="progress" style="width: 100%">
+													<div class="progress-bar bg-warning" role="progressbar" style="width: 92%;"></div>
+												</div>
+												<span class="text-end percentage">602 <span>(92%)</span></span>
+											</div>
+										</div>
+										<div class="progress-bar-box">
+											<div class="img-bx me-3">
+												<img src="images/food-icon/9.png" alt="" class="img-fluid">
+											</div>
+											<div class="bar-box d-flex w-100 align-items-center">
+												<h3 class="text-nowrap name mb-0">Takeaway</h3>
+												<div class="progress" style="width: 100%">
+													<div class="progress-bar bg-warning" role="progressbar" style="width: 8%;"></div>
+												</div>
+												<span class="text-end percentage">52 <span>(8%)</span></span>
+											</div>
+										</div>
+										<div class="progress-bar-box">
+											<div class="img-bx me-3">
+												<img src="images/food-icon/10.png" alt="" class="img-fluid">
+											</div>
+											<div class="bar-box d-flex w-100 align-items-center">
+												<h3 class="text-nowrap name mb-0">Online</h3>
+												<div class="progress" style="width: 100%">
+													<div class="progress-bar bg-warning" role="progressbar" style="width: 5%;"></div>
+												</div>
+												<span class="text-end percentage">3.1k <span>(5%)</span></span>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/6.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">French fries</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+						</div>
+					</div>
+					<div class="col-xl-6">
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="card">
+									<div class="card-header border-0 d-sm-flex d-block">
+										<div>
+											<h2 class="main-title text-black mb-1">Top Selling items</h2>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/7.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">French fries</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+									<div class="card-body pt-3">
+										<div class="media mb-3 pb-3 items-list-2 align-items-center">
+											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic5.jpg" alt="DexignZone"></a>
+											<div class="media-body col-6 px-0">
+												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">Italiano pizza</h3>
+												<span class="font-w500 mb-3">124 times</span>
+											</div>
+											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
+												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
+												<div class="dropdown ms-3 ">
+													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
+														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+													</button>
+													<div class="dropdown-menu dropdown-menu-end">
+														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
+														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/8.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">Veg Sandwich</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+										<div class="media  mb-3 pb-3 items-list-2 align-items-center">
+											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic4.jpg" alt="DexignZone"></a>
+											<div class="media-body col-6 px-0">
+												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">Cheese Momos</h3>
+												<span class="font-w500 mb-3">116 times</span>
+											</div>
+											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
+												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
+												<div class="dropdown ms-3 ">
+													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
+														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+													</button>
+													<div class="dropdown-menu dropdown-menu-end">
+														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
+														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/1.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">French fries</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+										<div class="media mb-3 pb-3 items-list-2 align-items-center">
+											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic3.jpg" alt="DexignZone"></a>
+											<div class="media-body col-6 px-0">
+												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">French fries</h3>
+												<span class="font-w500 mb-3">200 times</span>
+											</div>
+											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
+												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
+												<div class="dropdown ms-3 ">
+													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
+														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+													</button>
+													<div class="dropdown-menu dropdown-menu-end">
+														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
+														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/2.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">French fries</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/3.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">Veg Sandwich</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-								<div class="card item-card">
-									<div class="card-body p-0">
-										<img src="images/dish/4.jpg" class="img-fluid" alt="">
-										<div class="info">
-											<h5 class="name">Veg Sandwich</h5>
-											<h6 class="mb-0 price"><img src="images/veg.png" alt="">$6.00</h6>
+										<div class="media mb-3 pb-3 items-list-2 align-items-center">
+											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic2.jpg" alt="DexignZone"></a>
+											<div class="media-body col-6 px-0">
+												<h3 class="mt-0 mb-3 sub-title">Cheese Sandwich</h3>
+												<span class="font-w500 mb-3">50 times</span>
+											</div>
+											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
+												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
+												<div class="dropdown ms-3 ">
+													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
+														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+													</button>
+													<div class="dropdown-menu dropdown-menu-end">
+														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
+														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -640,68 +512,21 @@
     <!-- Required vendors -->
     <script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
 	
 	<!-- Counter Up -->
     <script src="vendor/waypoints/jquery.waypoints.min.js"></script>
     <script src="vendor/jquery.counterup/jquery.counterup.min.js"></script>	
 	
+	<!-- Apex Chart -->
+	<script src="vendor/apexchart/apexchart.js"></script>
+	
 	<script src="vendor/owl-carousel/owl.carousel.js"></script>
 	<script src="vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js"></script>
-
-    <script src="js/custom.js"></script>
+	<!-- Dashboard 1 -->
+	<script src="js/dashboard/dashboard.js"></script>
+    <script src="js/custom.min.js"></script>
 	<script src="js/deznav-init.js"></script>
-	<script>
-		  
-	function ItemsCarousel()
-	{
-	
-		/*  testimonial one function by = owl.carousel.js */
-		jQuery('.item-carousel').owlCarousel({
-			loop:true,
-			margin:10,
-			nav:true,
-			center:true,
-			autoWidth:true,
-			autoplay:true,
-			dots: false,
-			items:4,
-			navText: ['', ''],
-			breackpoint:[
-			
-			
-			]
-			
-		})
-	}
-	
-	jQuery(window).on('load',function(){
-		setTimeout(function(){
-			ItemsCarousel();
-		}, 1000); 
-	});
-	
-	function handleTabs(){
-		$('#add-order-content,#place-order').css("display","none");	
-		$('#add-order').on('click',function(){
-			$('#add-order-content').css("display","block");	
-			$('#home-counter').css("display","none");	
-		})
-		$('#place-order-tab').on('click',function(){
-			$('#place-order').css("display","block");	
-			$('#add-order-content').css("display","none");	
-		})
-		$('#place-order-cancel').on('click',function(){
-			$('#place-order').css("display","none");	
-			$('#add-order-content').css("display","block");	
-		})
-		$('#home-counter-tab').on('click',function(){
-			$('#home-counter').css("display","block");	
-			$('#add-order-content').css("display","none");	
-		})
-	}
-	handleTabs();
-
-	</script>
 	
 </body>
 

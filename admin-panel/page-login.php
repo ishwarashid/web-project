@@ -1,7 +1,13 @@
+<?php
+    session_start();
+	if (isset($_SESSION['SESSION_ID']))
+	{
+		header("Location:index.php");
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
-
-
 <head>
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,7 +65,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" name="login" class="btn btn-primary btn-block" style="background-color:#292929; border: none;">Sign Me In</button>
+                                            <button type="submit" name="login" value="login" class="btn btn-primary btn-block" style="background-color:#292929; border: none;">Sign Me In</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
@@ -85,6 +91,4 @@
     <script src="js/deznav-init.js"></script>
 
 </body>
-
-
 </html>
