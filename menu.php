@@ -96,7 +96,7 @@
                                         <h3><?php echo $row['product_name'];?></h3>
                                         <p><?php echo $row['description'];?></p>
                                         <div class="grid-item_price">
-                                            <span><?php echo $row['product_price'];?></span>
+                                            <span>Rs. <?php echo $row['product_price'];?></span>
                                             <form action="handle-cart.php" method="post"></form>
                                             <div class="add_cart"><button style="background-color: transparent; border: none;" type="submit" name="id" value ="<?php echo $row['product_id'];?>">Add To Cart</button></div>
                                         </div>

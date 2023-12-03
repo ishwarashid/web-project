@@ -2,9 +2,8 @@
     session_start();
 	if (isset($_SESSION['SESSION_ID']))
 	{
-		header("Location:admin.php");
+		header("Location: index.php");
 	}
-
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -24,10 +23,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Title -->
-	<title>Davur : Restaurant Admin Dashboard + FrontEnd</title>
+	<title>Culinary Cove Login</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link href="admin-panel/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -44,7 +43,7 @@
 										<a href="https://davur.dexignzone.com/xhtml/page-error-404.html"><img src="https://davur.dexignzone.com/xhtml/page-error-404.html" alt=""></a>
 									</div>
                                     <h4 class="text-center mb-4" style="color:#292929; font-weight: bold;">Sign in your account</h4>
-                                    <form action="handle-login.php" method="post">
+                                    <form action="handle-userlogin.php" method="post">
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Email</strong></label>
                                             <input type="email" name="username" class="form-control">
@@ -69,7 +68,7 @@
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
-                                        <p>Don't have an account? <a style="color:#292929; font-weight: bold;" href="page-register.php">Sign up</a></p>
+                                        <p>Don't have an account? <a style="color:#292929; font-weight: bold;" href="register.php">Sign up</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -85,10 +84,10 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="vendor/global/global.min.js"></script>
-	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="js/custom.min.js"></script>
-    <script src="js/deznav-init.js"></script>
+    <script src="admin-panel/vendor/global/global.min.js"></script>
+	<script src="admin-panel/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="admin-panel/js/custom.min.js"></script>
+    <script src="admin-panel/js/deznav-init.js"></script>
 
 </body>
 </html>

@@ -1,3 +1,5 @@
+<?php include 'includes/variables.php'; ?>
+
 <!DOCTYPE HTML>
 <html lang="en">
     
@@ -49,9 +51,17 @@
                                     <div class="contact-details">
                                         <h4>Contacts Details</h4>
                                         <ul>
-                                            <li><span><i class="fal fa-map-marked-alt"></i> Adress :</span> <a href="#">USA 27TH Brooklyn NY</a></li>
-                                            <li><span><i class="fal fa-phone-rotary"></i> Phone :</span> <a href="#">+7(123)987654</a></li>
-                                            <li><span><i class="fal fa-mailbox"></i> Mail :</span> <a href="#">yourmail@domain.com</a></li>
+                                            <li><span><i class="fal fa-map-marked-alt"></i> Adress :</span> <a href="#">
+                                                <?php echo $_GLOBAL["ADDRESS"] ?>
+
+                                            </a></li>
+                                            <li><span><i class="fal fa-phone-rotary"></i> Phone :</span> <a href="#">
+                                                <?php echo $_GLOBAL["PHONE"] ?>
+
+                                            </a></li>
+                                            <li><span><i class="fal fa-mailbox"></i> Mail :</span> <a href="#">
+                                                <?php echo $_GLOBAL["EMAIL"] ?>
+                                            </a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -252,7 +262,6 @@
         <script  src="js/jquery.min.js"></script>
         <script  src="js/plugins.js"></script>
         <script  src="js/scripts.js"></script>
-        <script  src="js/map.js"></script>            
     </body>
 
 </html>

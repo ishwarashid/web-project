@@ -628,10 +628,10 @@ function initRestabook() {
             }
         });
     }
-    $(".show-rb").on("click", function (e) {
-        e.preventDefault();
-        showResForm();
-    });
+    // $(".show-rb").on("click", function (e) {
+    //     e.preventDefault();
+    //     showResForm();
+    // });
     $(".crm").on("click", function () {
         hideResForm();
         setTimeout(function () {

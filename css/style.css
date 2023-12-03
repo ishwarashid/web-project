@@ -224,6 +224,8 @@ blockquote p {
 	margin: 0 auto;
 	position: relative;
 	z-index: 5;
+	background-image: url("../images/bg/17.jpg");
+
 }
 #wrapper {
 	position: absolute;
@@ -232,6 +234,7 @@ blockquote p {
 	right: 0;
 	bottom: 0;
 	z-index: 3;
+
 }
 .full-height {
 	height:100%;
@@ -252,6 +255,8 @@ blockquote p {
 	background-position: center;
 	background-repeat: repeat;
 	background-origin: content-box;
+
+
 }
 .par-elem {
 	height:130%;
@@ -3322,6 +3327,8 @@ h4.cart-title {
 	width:100%;
 	height:650px;
 	float:left;
+	background-image: url("../images/bg/17.jpg");
+
 }
 .mapzoom-in  , .mapzoom-out , .scrollContorl{
 	position: absolute;
@@ -4602,16 +4609,17 @@ cite.fn .star-rating {
     width: 100%;
     height: auto;
 	float:left;
-	background:#fff;
 }
 .map-view-wrap .container {
 	height:auto;
+
 }
 .map-view-wrap_item {
     width:100%;
     background: #fff;
     padding:0;
     top: 0;
+
 }
 .contact-details {
 	border:none;

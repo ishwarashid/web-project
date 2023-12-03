@@ -21,7 +21,7 @@
 	<!-- Title -->
 	<title>Davur : Restaurant Admin Dashboard + FrontEnd</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<link href="../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">

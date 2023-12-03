@@ -1,9 +1,9 @@
+<?php include 'includes/variables.php'; ?>
 <header class="main-header">
                 <!-- header-top  -->
                 <div class="header-top">
                     <div class="container">
-                        <div class="lang-wrap"><a href="#" class="act-lang">En</a><span>/</span><a href="#">Fr</a></div>
-                        <div class="header-top_contacts"><a href="#"><span>Call now:</span> +489756412322</a><a href="#"><span>Write :</span> yourmail@domain.com</a></div>
+                        <div class="header-top_contacts"><a href="#"><span>Call now: </span><?php echo $_GLOBAL["PHONE"]; ?></a><a href="#"><span>Write: </span><?php echo $_GLOBAL["EMAIL"] ?></a></div>
                     </div>
                 </div>
                 <!--header-top end -->
@@ -12,8 +12,10 @@
                     <div class="container">
                         <div class="header-container fl-wrap">
                             <a href="index.php" class="logo-holder"><img src="images/logo1.png" alt=""></a>
-                            <div class="show-reserv_button show-rb"><span>Reservation</span> <i class="fal fa-bookmark"></i></div>
-                            <div class="show-share-btn showshare htact"><i class="fal fa-bullhorn"></i> <span class="header-tooltip">Share</span></div>
+                            <?php session_start(); if(isset($_SESSION['SESSION_ID'])){ ?>
+                                <a href="handle-userlogout.php" class="show-reserv_button show-rb"><span>Logout</span> <i class="fal fa-bookmark"></i></a>
+                            <?php }?>
+                                <a href="login.php" class="show-reserv_button show-rb"><span>Login</span> <i class="fal fa-bookmark"></i></a>
                             <div class="show-cart sc_btn htact"><i class="fal fa-shopping-bag"></i><span class="show-cart_count">3</span><span class="header-tooltip">Your Cart</span></div>
                             <!-- nav-button-wrap-->
                             <div class="nav-button-wrap">
@@ -27,45 +29,15 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="#" class="act-link">Home <i class="fas fa-caret-down"></i></a>
-                                            <!--second level -->
-                                            <ul>
-                                                <li><a href="index.php">Parallax Image</a></li>
-                                                <li><a href="index2.php">Slider</a></li>
-                                                <li><a href="index3.php">Carousel</a></li>
-                                                <li><a href="index4.php">Slideshow</a></li>
-                                                <li><a href="index5.php">Video</a></li>
-                                                <li><a href="onepage.php">One Page</a></li>
-                                            </ul>
-                                            <!--second level end-->
+                                            <a href="index.php" class="act-link">Home</a>
+                                    
                                         </li>
                                         <li>
-                                            <a href="#">Menu<i class="fas fa-caret-down"></i></a>
-                                            <!--second level -->
-                                            <ul>
-                                                <li><a href="menu.php">Menu 1</a></li>
-                                                <li><a href="menu2.php">Menu 2</a></li>
-                                                <li><a href="menu3.php">Menu 3</a></li>
-                                            </ul>
-                                            <!--second level end-->
+                                            <a href="menu.php">Menu</a>
                                         </li>
                                         <li><a href="about.php">About</a></li>
                                         <li><a href="contact.php">Contact</a></li>
                                         <li><a href="blog.php">News</a></li>
-                                        <li>
-                                            <a href="#">Pages<i class="fas fa-caret-down"></i></a>
-                                            <!--second level -->
-                                            <ul>
-                                                <li><a href="shop.php">Shop</a></li>
-                                                <li><a href="product-single.php">Product Single</a></li>
-                                                <li><a href="cart.php">Cart</a></li>
-                                                <li><a href="gallery.php">Gallery</a></li>
-                                                <li><a href="blog-single.php">Blog single</a></li>
-                                                <li><a href="404.php">404</a></li>
-                                                <li><a href="coming-soon.php">Coming Soon</a></li>
-                                            </ul>
-                                            <!--second level end-->
-                                        </li>
                                     </ul>
                                 </nav>
                             </div>

@@ -1,3 +1,4 @@
+<?php include 'includes/variables.php'; ?>
                 <footer class="fl-wrap dark-bg fixed-footer">
                     <div class="container">
                         <div class="footer-top fl-wrap">
@@ -36,9 +37,9 @@
                                         <div class="footer-widget-content">
                                             <div class="footer-contacts footer-box fl-wrap">
                                                 <ul>
-                                                    <li><span>Call :</span><a href="#">+923111678667</a> , <a href="#">+923111678667</a></li>
-                                                    <li><span>Write  :</span><a href="#">culinarycove@gmail.com</a></li>
-                                                    <li><span>Find Us : </span><a href="#">DHA Phase-7 Lhr, Pak</a></li>
+                                                    <li><span>Call :</span><a href="#"><?php echo $_GLOBAL["PHONE"] ?></a></li>
+                                                    <li><span>Write  :</span><a href="#"><?php echo $_GLOBAL["EMAIL"] ?></a></li>
+                                                    <li><span>Find Us : </span><a href="#"><?php echo $_GLOBAL["ADDRESS"] ?></a></li>
                                                 </ul>
                                             </div>
                                             <a href="contacts.php" class="footer-widget-content-link">Get in Touch</a>                                                    	

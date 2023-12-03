@@ -1,4 +1,6 @@
 <?php include("includes/session.php"); ?>
+<?php include '../database/database-helper.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +23,7 @@
 	<!-- Title -->
 	<title>Davur : Restaurant Admin Dashboard + FrontEnd</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -252,19 +254,25 @@
 									<tr>
 										<th>ITEM NAME</th>
 										<th>CATEGORY</th>
-										<th>ADD-ONS</th>
 										<th>PRICE</th>
-										<th>SALES</th>
+										<th>DESCRIPTION</th>
 										<th class="text-end">ACTION</th>
 									</tr>
 								</thead>
 								<tbody>
+								<?php 
+                                	$sql = "SELECT * FROM products";
+                                	$result = $conn->query($sql);
+									if ($result->num_rows > 0) {
+										// output data of each row
+										while($row = $result->fetch_assoc()) {
+                            
+                            	?>
 									<tr>
-										<td><strong>Veg Burger</strong></td>
-										<td>Fast Food</td>
-										<td>3 <i class="fa fa-list ms-1"></i></td>
-										<td>$12.00</td>
-										<td>112</td>
+										<td><strong><?php echo $row['product_name'];?></strong></td>
+										<td><?php echo $row['category'];?></td>
+										<td>Rs. <?php echo $row['product_price'];?></td>
+										<td><?php echo $row['description'];?></td>
 										<td>
 											<div class="action-buttons d-flex justify-content-end">
 												<a href="javascript:void(0);" class="btn btn-primary light me-2">
@@ -276,7 +284,8 @@
 														</g>
 													</svg>
 												</a>
-												<a href="javascript:void(0);" class="btn btn-danger light">
+												<a href="handle-delete-item.php?id=<?php echo $row['product_id'];?>" class="btn btn-danger light">
+
 													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 															<rect x="0" y="0" width="24" height="24"/>
@@ -288,7 +297,13 @@
 											</div>
 										</td>												
 									</tr>
-									<tr>
+									<?php
+
+                                    	}
+                                			}
+                            		?>
+
+									<!-- <tr>
 										<td><strong>Cheese Burger</strong></td>
 										<td>Fast Food</td>
 										<td>3 <i class="fa fa-list ms-1"></i></td>
@@ -316,8 +331,8 @@
 												</a>
 											</div>
 										</td>												
-									</tr>
-									<tr>
+									</tr> -->
+									<!-- <tr>
 										<td><strong>Cheese Sandwich</strong></td>
 										<td>Fast Food</td>
 										<td>3 <i class="fa fa-list ms-1"></i></td>
@@ -345,8 +360,8 @@
 												</a>
 											</div>
 										</td>												
-									</tr>
-									<tr>
+									</tr> -->
+									<!-- <tr>
 										<td><strong>Momos masala</strong></td>
 										<td>Fast Food</td>
 										<td>3 <i class="fa fa-list ms-1"></i></td>
@@ -374,8 +389,8 @@
 												</a>
 											</div>
 										</td>												
-									</tr>
-									<tr>
+									</tr> -->
+									<!-- <tr>
 										<td><strong>Veg Burger</strong></td>
 										<td>Fast Food</td>
 										<td>3 <i class="fa fa-list ms-1"></i></td>
@@ -403,8 +418,8 @@
 												</a>
 											</div>
 										</td>												
-									</tr>
-									<tr>
+									</tr> -->
+									<!-- <tr>
 										<td><strong>Pizza slice</strong></td>
 										<td>Fast Food</td>
 										<td>3 <i class="fa fa-list ms-1"></i></td>
@@ -432,8 +447,8 @@
 												</a>
 											</div>
 										</td>												
-									</tr>
-									<tr>
+									</tr> -->
+									<!-- <tr>
 										<td><strong>French fries</strong></td>
 										<td>Fast Food</td>
 										<td>3 <i class="fa fa-list ms-1"></i></td>
@@ -461,8 +476,8 @@
 												</a>
 											</div>
 										</td>												
-									</tr>
-									<tr>
+									</tr> -->
+									<!-- <tr>
 										<td><strong>Cheese Sandwich</strong></td>
 										<td>Fast Food</td>
 										<td>3 <i class="fa fa-list ms-1"></i></td>
@@ -490,7 +505,7 @@
 												</a>
 											</div>
 										</td>												
-									</tr>
+									</tr> -->
 								</tbody>
 							</table>
 						</div>
@@ -511,41 +526,44 @@
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-center">
 			<div class="modal-content">
-			  <div class="modal-header">
-				<h1 class="modal-title fs-5" id="exampleModalLabel">Add New Items</h1>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			  </div>
-			  <div class="modal-body">
-				<div class="row">
-					<div class="col-xl-6">
-						<div class="mb-3">
-						  <label for="exampleFormControlInput1" class="form-label">Items Name</label>
-						  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Cheese Burger">
-						</div>
-						<div class="mb-3">
-						  <label for="exampleFormControlInput1" class="form-label">PRICE</label>
-						  <input type="number" class="form-control" id="exampleFormControlInput2" placeholder="$12.00">
+				<form action="handle-new-items.php" method="post">
+
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Add New Items</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-xl-6">
+								<div class="mb-3">
+								<label for="exampleFormControlInput1" class="form-label">Items Name</label>
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Cheese Burger" name="itemName">
+								</div>
+								<div class="mb-3">
+								<label for="exampleFormControlInput1" class="form-label">PRICE</label>
+								<input type="number" class="form-control" id="exampleFormControlInput2" placeholder="Rs.1200" name="itemPrice">
+								</div>
+							</div>
+							<div class="col-xl-6">
+								<div class="mb-3">
+								<label for="exampleFormControlInput3" class="form-label">DESCRIPTION</label>
+								<input type="text" class="form-control" id="exampleFormControlInput3" placeholder="" name="itemDesc">
+								</div>
+								<label for="exampleFormControlInput3" class="form-label">CATEGORY</label>
+								<select class="default-select" aria-label="Default select example" name="category">
+								<option selected value="starter">Starter</option>
+								<option value="seafood">Sea Food</option>
+								<option value="desserts">Desserts</option>
+								<option value="drinks">Drinks</option>
+								</select>
+							</div>
 						</div>
 					</div>
-					<div class="col-xl-6">
-						<div class="mb-3">
-						  <label for="exampleFormControlInput3" class="form-label">SALES</label>
-						  <input type="number" class="form-control" id="exampleFormControlInput3" placeholder="112">
-						</div>
-						 <label for="exampleFormControlInput3" class="form-label">CATEGORY</label>
-						<select class="default-select" aria-label="Default select example">
-						  <option selected>CATEGORY</option>
-						  <option value="1">Fast Food</option>
-						  <option value="2">Dinner</option>
-						  <option value="3">Lunch</option>
-						</select>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Save changes</button>
 					</div>
-				</div>
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
-			  </div>
+				</form>
 			</div>
 		  </div>
 		</div>
