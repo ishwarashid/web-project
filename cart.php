@@ -62,6 +62,7 @@
                             <!-- CHECKOUT TABLE -->
                             <div class="row">
                                 <div class="col-md-8">
+                                    
                                     <h4 class="cart-title">Your cart <span>3 items</span></h4>
                                     <table class="table table-border checkout-table">
                                         <tbody>
@@ -69,31 +70,55 @@
                                                 <th class="hidden-xs">Item</th>
                                                 <th>Description</th>
                                                 <th class="hidden-xs">Price</th>
-                                                <th>Count</th>
+                                                <th>Quantity</th>
                                                 <th>Total</th>
                                                 <th></th>
                                             </tr>
+                                            <?php 
+        
+                                                $customerId = $_SESSION['SESSION_ID'];
+
+
+                                                $sql = "SELECT orders.order_id, orders.quantity, products.product_name, products.product_price
+                                                FROM orders
+                                                INNER JOIN products ON orders.product_id=products.product_id
+                                                WHERE status='pending' AND customer_id='$customerId';";
+                                                $result = mysqli_query($conn, $sql);
+                                                $totalAmount = 0;
+                                                if (mysqli_num_rows($result) > 0) {
+                                                    // output data of each row
+                                                    while($row = mysqli_fetch_assoc($result)) {
+
+                                            ?>
                                             <tr>
                                                 <td class="hidden-xs">
                                                     <a href="#"><img src="images/menu/1.jpg" alt="" class="respimg"></a>
                                                 </td>
                                                 <td>
-                                                    <h5 class="product-name">Grilled Steaks</h5>
+                                                    <h5 class="product-name"><?php echo $row['product_name'];?></h5>
                                                 </td>
                                                 <td class="hidden-xs">
-                                                    <h5 class="order-money">$45.00</h5>
+                                                    <h5 class="
+                                                    
+                                                    -money">Rs. <?php echo $row['product_price'];?></h5>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="cartin1" value="1" max="50" min="1" class="order-count">
+                                                    <h5 class="order-count"><?php echo $row['quantity'];?></h5>                                          
                                                 </td>
                                                 <td>
-                                                    <h5 class="order-money">$45.00</h5>
+                                                    <h5 class="order-money"><?php echo $row['quantity'] * $row['product_price'];?></h5>
                                                 </td>
                                                 <td class="pr-remove">
-                                                    <a href="#" title="Remove"><i class="fal fa-times"></i></a>
+                                                    <a href="remove-cart.php?id=<?php echo $row['order_id'];?>" title="Remove"><i class="fal fa-times"></i></a>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <?php
+                                                        $totalAmount = $totalAmount + $row['quantity']*($row['product_price'] );
+
+                                                    }
+                                                }
+                                            ?>
+                                            <!-- <tr>
                                                 <td class="hidden-xs">
                                                     <a href="#"><img src="images/menu/2.jpg" alt="" class="respimg"></a>
                                                 </td>
@@ -132,7 +157,7 @@
                                                 <td class="pr-remove">
                                                     <a href="#" title="Remove"><i class="fal fa-times"></i></a>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                     <!-- COUPON -->
@@ -151,19 +176,19 @@
                                             <tbody>
                                                 <tr>
                                                     <th>Cart Subtotal:</th>
-                                                    <td>$240.00</td>
+                                                    <td><?php echo $totalAmount?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Shipping Total:</th>
-                                                    <td>$12.00</td>
+                                                    <td>Rs. 200</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Total:</th>
-                                                    <td>$252.00</td>
+                                                    <td><?php echo $totalAmount + 200;?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <button type="submit" class="cart-totals_btn color-bg">Proceed to Checkout</button>
+                                        <button type="submit" class="cart-totals_btn color-bg"><a href="checkout.php" style="text-decoration: none;">Proceed to Checkout</a></button>
                                     </div>
                                     <!-- /CART TOTALS  -->                              
                                 </div>

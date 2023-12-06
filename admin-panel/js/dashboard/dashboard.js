@@ -206,8 +206,8 @@
 	
 	var counterBar = function(){
 		$(".counter").counterUp({
-			delay: 30,
-			time: 3000
+			delay: 1,
+			time: 100
 		});
 	}
 	

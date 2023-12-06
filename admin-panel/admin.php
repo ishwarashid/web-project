@@ -1,4 +1,6 @@
 <?php include("includes/session.php"); ?>
+<?php include '../database/database-helper.php'; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -272,6 +274,32 @@
 							</div>
 						</div>
 					</div>
+
+					<?php
+						$totalMenus = "SELECT COUNT(*) AS totalMenus FROM products";
+						$rstRow1 = mysqli_query($conn, $totalMenus);
+						$objRow1 = mysqli_fetch_object($rstRow1);
+
+						$totalOrders = "SELECT COUNT(*) AS totalOrders FROM orders WHERE status='placed'";
+						$rstRow2 = mysqli_query($conn, $totalOrders);
+						$objRow2 = mysqli_fetch_object($rstRow2);
+
+						$totalItems = "SELECT COUNT(*) AS totalItems FROM orders WHERE status='placed'";
+						$rstRow3 = mysqli_query($conn, $totalItems);
+						$objRow3 = mysqli_fetch_object($rstRow3);
+
+						$sql = "SELECT * FROM orders WHERE status='placed'";
+						$result = mysqli_query($conn, $sql);
+						$totalItems = 0;
+						if (mysqli_num_rows($result) > 0) {
+							while($row = mysqli_fetch_assoc($result)) {
+								$totalItems = $totalItems + $row['quantity'];
+								
+							}
+						}
+
+            		?>
+
 					<div class="col-xl-6">
 						<div class="row">
 							<div class="col-sm-6">
@@ -280,7 +308,7 @@
 										<div class="media">
 											<img src="images/food-icon/1.png" alt="" class="me-4" width="80">
 											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">128</span></h3>
+												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0"><?php echo ($objRow1->totalMenus);?></span></h3>
 												<p class="mb-0">Total Menus</p>
 											</div>
 										</div>
@@ -306,7 +334,7 @@
 										<div class="media">
 											<img src="images/food-icon/3.png" alt="" class="me-4" width="80">
 											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">678</span></h3>
+												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0"><?php echo $totalItems;?></span></h3>
 												<p class="mb-0">Items Sold</p>
 											</div>
 										</div>
@@ -319,7 +347,7 @@
 										<div class="media">
 											<img src="images/food-icon/4.png" alt="" class="me-4" width="80">
 											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">128</span></h3>
+												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0"><?php echo ($objRow2->totalOrders);?></span></h3>
 												<p class="mb-0">Total Orders</p>
 											</div>
 										</div>

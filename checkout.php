@@ -134,7 +134,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <button type="submit" class="cart-totals_btn color-bg">Proceed to Checkout</button>
+                                        <button type="submit" class="cart-totals_btn color-bg"><a href="process-order.php" style="text-decoration.php">Proceed to Checkout</a></button>
                                     </div>
                                     <!-- /CART TOTALS  -->                              
                                 </div>

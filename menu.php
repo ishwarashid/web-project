@@ -86,7 +86,7 @@
                                     // output data of each row
                                     while($row = $result->fetch_assoc()) {
                             ?>
-                                <div class="gallery-item  <?php echo $row['category'];?>">
+                                <div class="gallery-item <?php echo $row['category'];?>">
                                     <div class="grid-item-holder hov_zoom">
                                         <a href="images/menu/1.jpg" class="box-media-zoom popup-image"><i class="fal fa-search"></i></a>
                                         <img  src="images/menu/1.jpg" alt="">
@@ -97,8 +97,7 @@
                                         <p><?php echo $row['description'];?></p>
                                         <div class="grid-item_price">
                                             <span>Rs. <?php echo $row['product_price'];?></span>
-                                            <form action="handle-cart.php" method="post"></form>
-                                            <div class="add_cart"><button style="background-color: transparent; border: none;" type="submit" name="id" value ="<?php echo $row['product_id'];?>">Add To Cart</button></div>
+                                            <div class="add_cart"><a href="handle-cart.php?id=<?php echo $row['product_id'];?>" style="text-decoration: none">Add To Cart</a></div>
                                         </div>
                                     </div>
                                 </div>
