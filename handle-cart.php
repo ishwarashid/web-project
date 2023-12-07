@@ -16,7 +16,7 @@ else{
     $id = $row['max_id'] + 1;
 }
 
-$sqlQ = "SELECT * FROM orders WHERE customer_id='$customerId' AND product_id='$productId';";
+$sqlQ = "SELECT * FROM orders WHERE customer_id='$customerId' AND product_id='$productId' AND status='pending';";
 $result = mysqli_query($conn,$sqlQ) or die("Query Failed");
 
 if(mysqli_num_rows($result)==0){
