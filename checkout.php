@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="en">
     
@@ -39,7 +40,7 @@
                 <div class="content">
                     <!--  section  -->  
                     <section class="parallax-section hero-section hidden-section" data-scrollax-parent="true">
-                        <div class="bg par-elem "  data-bg="images/bg/13.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+                        <div class="bg par-elem "  data-bg="images/bg/7.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
                         <div class="overlay"></div>
                         <div class="container">
                             <div class="section-title">
@@ -64,28 +65,38 @@
                                 <div class="col-md-8">
                                     <div class="check-out_wrap fl-wrap">
                                         <h4 class="cart-title">Your Information</h4>
-                                        <form  class="custom-form">
+                                        <?php
+                                            $customerId = $_SESSION['SESSION_ID'];
+                                            $sql = "SELECT * FROM customers WHERE customer_id='$customerId';";
+                                            $result = mysqli_query($conn, $sql);
+
+                                            if (mysqli_num_rows($result) > 0) {
+                                            // output data of each row
+                                                while($row = mysqli_fetch_assoc($result)) {
+
+                                        ?>
+                                        <form  class="custom-form" action="handle-checkout.php" method="post">
                                             <fieldset>
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <input type="text" name="name"   placeholder="Your Name *" value=""/>
+                                                        <input type="text" name="name"   placeholder="Your Name *" value="<?php echo $row['name'];?>" disabled/>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <input type="text"  name="email"   placeholder="Email Address *" value=""/>
+                                                        <input type="text"  name="email"   placeholder="Email Address *" value="<?php echo $row['username']; ?>" disabled/>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <input type="text"  name="phone"  placeholder="Phone *" value=""/>
+                                                        <input type="text"  name="phone"  placeholder="Phone *" value="" required/>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <input type="text"  name="city"   placeholder="City  *" value=""/>
+                                                        <input type="text"  name="address"   placeholder="Address  *" value="" required/>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <input type="text"  name="country"   placeholder="Country  *" value=""/>
+                                                        <!-- <input type="text"  name="country"   placeholder="Country  *" value=""/>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <input type="text"  name="code"   placeholder="Postal code*" value=""/>
-                                                    </div>
-                                                    <div class="col-sm-12">
+                                                    </div> -->
+                                                    <!-- <div class="col-sm-12">
                                                         <h4 class="cart-title">Payment method</h4>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -105,36 +116,61 @@
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <p style="padding-top:20px; text-align: left; font-size: 10px">*Three digits number on the back of your card</p>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
-                                                <textarea name="comments"  id="comments" cols="30" rows="3" placeholder="Addtional Notes"></textarea>
+                                                <!-- <textarea name="comments"  id="comments" cols="30" rows="3" placeholder="Addtional Notes"></textarea> -->
                                                 <div class="clearfix"></div>
-                                                <button class="btn color-bg">Confirm and Pay<i class="fal fa-long-arrow-right"></i></button>
+                                                <button type="submit" class="btn color-bg">Confirm and Pay<i class="fal fa-long-arrow-right"></i></button>
                                             </fieldset>
                                         </form>
+                                        <?php
+                                                }
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <!-- CART TOTALS  -->
+                                    <?php 
+        
+                                        $customerId = $_SESSION['SESSION_ID'];
+
+
+                                        $sql = "SELECT orders.order_id, orders.quantity, products.product_name, products.product_price, products.image
+                                        FROM orders
+                                        INNER JOIN products ON orders.product_id=products.product_id
+                                        WHERE status='pending' AND customer_id='$customerId';";
+                                        $result = mysqli_query($conn, $sql);
+                                        $totalAmount = 0;
+                                        if (mysqli_num_rows($result) > 0) {
+                                            // output data of each row
+                                            while($row = mysqli_fetch_assoc($result)) {
+                                                $totalAmount = $totalAmount + $row['quantity']*($row['product_price'] );
+
+                                            }
+                                        }
+
+                                    ?>
+
                                     <div class="cart-totals dark-bg fl-wrap">
                                         <h3>Cart totals</h3>
                                         <table class="total-table">
                                             <tbody>
                                                 <tr>
                                                     <th>Cart Subtotal:</th>
-                                                    <td>$240.00</td>
+                                                    <td><?php echo $totalAmount?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Shipping Total:</th>
-                                                    <td>$12.00</td>
+                                                    <td>Rs. 200</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Total:</th>
-                                                    <td>$252.00</td>
+                                                    <td><?php echo $totalAmount + 200;?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <button type="submit" class="cart-totals_btn color-bg"><a href="process-order.php" style="text-decoration.php">Proceed to Checkout</a></button>
+                                        <!-- <button type="submit" class="cart-totals_btn color-bg"><a href="process-order.php" style="text-decoration.php">Proceed to Checkout</a></button> -->
                                     </div>
                                     <!-- /CART TOTALS  -->                              
                                 </div>

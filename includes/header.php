@@ -1,3 +1,5 @@
+<?php error_reporting(0); ?> 
+
 <?php 
 include 'database/database-helper.php';
 include 'variables.php'; 
@@ -71,7 +73,7 @@ include 'variables.php';
 
                                             <?php 
 
-                                                $sql = "SELECT orders.order_id, orders.quantity, products.product_name, products.product_price
+                                                $sql = "SELECT orders.order_id, orders.quantity, products.product_name, products.product_price, products.image
                                                 FROM orders
                                                 INNER JOIN products ON orders.product_id=products.product_id
                                                 WHERE status='pending' AND customer_id='$customerId'";
@@ -83,7 +85,7 @@ include 'variables.php';
                             
                                             ?>
                                                 <li class="clearfix">
-                                                    <a href="#"  class="widget-posts-img"><img src="images/menu/1.jpg" class="respimg" alt=""></a>
+                                                    <a href="#"  class="widget-posts-img"><img src="<?php echo $row['image'];?>" class="respimg" alt=""></a>
                                                     <div class="widget-posts-descr">
                                                         <a href="#" title=""><?php echo $row['product_name'];?></a>
                                                         <div class="widget-posts-descr_calc clearfix"><?php echo $row['quantity'];?> <span>x</span>Rs. <?php echo $row['product_price'];?></div>

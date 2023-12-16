@@ -39,7 +39,7 @@
                 <div class="content">
                     <!--  section  -->  
                     <section class="parallax-section hero-section hidden-section" data-scrollax-parent="true">
-                        <div class="bg par-elem "  data-bg="images/bg/17.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+                        <div class="bg par-elem "  data-bg="images/bg/4.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
                         <div class="overlay"></div>
                         <div class="container">
                             <div class="section-title">
@@ -79,7 +79,7 @@
                                                 $customerId = $_SESSION['SESSION_ID'];
 
 
-                                                $sql = "SELECT orders.order_id, orders.quantity, products.product_name, products.product_price
+                                                $sql = "SELECT orders.order_id, orders.quantity, products.product_name, products.product_price, products.image
                                                 FROM orders
                                                 INNER JOIN products ON orders.product_id=products.product_id
                                                 WHERE status='pending' AND customer_id='$customerId';";
@@ -92,7 +92,7 @@
                                             ?>
                                             <tr>
                                                 <td class="hidden-xs">
-                                                    <a href="#"><img src="images/menu/1.jpg" alt="" class="respimg"></a>
+                                                    <a href="#"><img src="<?php echo $row['image'];?>" alt="" class="respimg"></a>
                                                 </td>
                                                 <td>
                                                     <h5 class="product-name"><?php echo $row['product_name'];?></h5>
@@ -164,7 +164,7 @@
                                     <div class="coupon-holder">
                                         <input type="text" name="cartcoupon" placeholder="Coupon code">
                                         <button type="submit" class="btn-a">Apply</button>
-                                        <button type="submit" class="pull-right btn-uc">Update Cart</button>
+                                        <!-- <button type="submit" class="pull-right btn-uc">Update Cart</button> -->
                                     </div>
                                     <!-- /COUPON -->                                     
                                 </div>

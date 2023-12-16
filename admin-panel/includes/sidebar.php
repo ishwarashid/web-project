@@ -1,64 +1,4 @@
-<?php include("includes/session.php"); ?>
-<?php include '../database/database-helper.php'; ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-
-<head>
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="author" content="DexignZone">
-	<meta name="robots" content="">
-	<meta name="keywords" content="admin dashboard, admin template, administration, analytics, bootstrap, cafe admin, elegant, food, health, kitchen, modern, responsive admin dashboard, restaurant dashboard">
-	<meta name="description" content="Discover Davur - the ultimate admin dashboard and Bootstrap 5 template. Specially designed for professionals, and for business. Davur provides advanced features and an easy-to-use interface for creating a top-quality website with frontend">
-	<meta property="og:title" content="Davur : Restaurant Admin Dashboard + FrontEnd">
-	<meta property="og:description" content="Discover Davur - the ultimate admin dashboard and Bootstrap 5 template. Specially designed for professionals, and for business. Davur provides advanced features and an easy-to-use interface for creating a top-quality website with frontend">
-	<meta property="og:image" content="https://davur.dexignzone.com/xhtml/page-error-404.html">
-	<meta name="format-detection" content="telephone=no">
-	
-	<!-- Mobile Specific -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!-- Title -->
-	<title>Culinary Cove Admin Dashboard</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico">
-    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
-	<link href="vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-	<link href="../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-
-</head>
-<body>
-
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="sk-three-bounce">
-            <div class="sk-child sk-bounce1"></div>
-            <div class="sk-child sk-bounce2"></div>
-            <div class="sk-child sk-bounce3"></div>
-        </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
-    <div id="main-wrapper">
-	
-	
-	<?php include 'includes/header.php'; ?>
-
-		
-		
-		<div class="menu-sidebar">
+<div class="menu-sidebar">
 			<div class="contact-box">
 				<ul class="home-nav">
 					<li class="nav-item">
@@ -112,7 +52,7 @@
 				</ul>
 				<ul>
 					<li class="nav-item active">
-                        <a class="nav-link" href="front-dashboard.php">
+                        <a class="nav-link" href="index.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 								<rect x="0" y="0" width="24" height="24"/>
@@ -121,6 +61,17 @@
 							</g>
 						</svg>
 						Dashboard</a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="front-admins.php">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<rect x="0" y="0" width="24" height="24"/>
+								<path d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z" fill="#000000" opacity="0.3"/>
+								<path d="M11.1750002,14.75 C10.9354169,14.75 10.6958335,14.6541667 10.5041669,14.4625 L8.58750019,12.5458333 C8.20416686,12.1625 8.20416686,11.5875 8.58750019,11.2041667 C8.97083352,10.8208333 9.59375019,10.8208333 9.92916686,11.2041667 L11.1750002,12.45 L14.3375002,9.2875 C14.7208335,8.90416667 15.2958335,8.90416667 15.6791669,9.2875 C16.0625002,9.67083333 16.0625002,10.2458333 15.6791669,10.6291667 L11.8458335,14.4625 C11.6541669,14.6541667 11.4145835,14.75 11.1750002,14.75 Z" fill="#000000"/>
+							</g>
+						</svg>
+						Admins</a>
                     </li>
 					<li class="nav-item">
                         <a class="nav-link" href="front-people.php">
@@ -133,7 +84,7 @@
 						</svg> 
 						People</a>
                     </li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
                         <a class="nav-link" href="front-wallet.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -143,7 +94,7 @@
 							</g>
 						</svg> 
 						Wallet</a>
-                    </li>
+                    </li> -->
 					<li class="nav-item">
                         <a class="nav-link" href="front-food-items.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -159,16 +110,18 @@
 						Food Items</a>
                     </li>
 					<li class="nav-item">
-                        <a class="nav-link" href="front-reviews.php">
-						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+                        <a class="nav-link" href="front-orders.php">
+						<!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 								<polygon points="0 0 24 0 24 24 0 24"/>
 								<path d="M12,18 L7.91561963,20.1472858 C7.42677504,20.4042866 6.82214789,20.2163401 6.56514708,19.7274955 C6.46280801,19.5328351 6.42749334,19.309867 6.46467018,19.0931094 L7.24471742,14.545085 L3.94038429,11.3241562 C3.54490071,10.938655 3.5368084,10.3055417 3.92230962,9.91005817 C4.07581822,9.75257453 4.27696063,9.65008735 4.49459766,9.61846284 L9.06107374,8.95491503 L11.1032639,4.81698575 C11.3476862,4.32173209 11.9473121,4.11839309 12.4425657,4.36281539 C12.6397783,4.46014562 12.7994058,4.61977315 12.8967361,4.81698575 L14.9389263,8.95491503 L19.5054023,9.61846284 C20.0519472,9.69788046 20.4306287,10.2053233 20.351211,10.7518682 C20.3195865,10.9695052 20.2170993,11.1706476 20.0596157,11.3241562 L16.7552826,14.545085 L17.5353298,19.0931094 C17.6286908,19.6374458 17.263103,20.1544017 16.7187666,20.2477627 C16.5020089,20.2849396 16.2790408,20.2496249 16.0843804,20.1472858 L12,18 Z" fill="#000000"/>
 							</g>
-						</svg>
-						 Reviews</a>
+						</svg> -->
+						<!-- <i class="fa-regular fa-cart-shopping" style="color: #2f4cdd;"></i> -->
+						<img src="images\shopping-bag (1).png" width="24px" height="24px" alt="">
+						Orders</a>
                     </li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
                         <a class="nav-link" href="front-authentication.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -178,8 +131,8 @@
 							</g>
 						</svg>
 						Authentication</a>
-                    </li>
-					<li class="nav-item">
+                    </li> -->
+					<!-- <li class="nav-item">
                         <a class="nav-link" href="front-setting.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -189,8 +142,8 @@
 							</g>
 						</svg>
 						Settings</a>
-                    </li>
-					<li class="nav-item">
+                    </li> -->
+					<!-- <li class="nav-item">
                         <a class="nav-link" href="front-support.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -200,7 +153,7 @@
 							</g>
 						</svg>
 						Support</a>
-                    </li>
+                    </li> -->
 					<li class="nav-item">
                         <a class="nav-link" href="front-terms_conditions.php">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -230,333 +183,3 @@
 			</div>	
 		</div>
 		<div class="menu-close"></div>
-		
-		<!--**********************************
-            Content body start
-        ***********************************-->
-        <div class="content-wrapper">
-            <!-- row -->
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-xl-6">
-						<div id="user-activity" class="card">
-							<div class="card-header border-0 pb-0 d-sm-flex d-block">
-								<div>
-									<h2 class="main-title mb-1">Earnings</h2>
-								</div>
-								<div class="card-action card-tabs mt-3 mt-sm-0">
-									
-									 <ul class="nav nav-tabs" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#user" role="tab">
-                                                Monthly
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#user" role="tab">
-                                               Weekly
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#user" role="tab">
-                                               Today
-                                            </a>
-                                        </li>
-                                    </ul>
-								</div>
-							</div>
-							<div class="card-body">
-								<div class="tab-content" id="myTabContent">
-									<div class="tab-pane fade show active" id="user" role="tabpanel">
-										<canvas id="activity" class="chartjs"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<?php
-						$totalMenus = "SELECT COUNT(*) AS totalMenus FROM products";
-						$rstRow1 = mysqli_query($conn, $totalMenus);
-						$objRow1 = mysqli_fetch_object($rstRow1);
-
-						$totalOrders = "SELECT COUNT(*) AS totalOrders FROM orders WHERE status='placed'";
-						$rstRow2 = mysqli_query($conn, $totalOrders);
-						$objRow2 = mysqli_fetch_object($rstRow2);
-
-						$totalItems = "SELECT COUNT(*) AS totalItems FROM orders WHERE status='placed'";
-						$rstRow3 = mysqli_query($conn, $totalItems);
-						$objRow3 = mysqli_fetch_object($rstRow3);
-
-						$sql = "SELECT * FROM orders WHERE status='placed'";
-						$result = mysqli_query($conn, $sql);
-						$totalItems = 0;
-						if (mysqli_num_rows($result) > 0) {
-							while($row = mysqli_fetch_assoc($result)) {
-								$totalItems = $totalItems + $row['quantity'];
-								
-							}
-						}
-
-            		?>
-
-					<div class="col-xl-6">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="widget-card-1 card">
-									<div class="card-body">
-										<div class="media">
-											<img src="images/food-icon/1.png" alt="" class="me-4" width="80">
-											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0"><?php echo ($objRow1->totalMenus);?></span></h3>
-												<p class="mb-0">Total Menus</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="widget-card-1 card">
-									<div class="card-body">
-										<div class="media">
-											<img src="images/food-icon/2.png" alt="" class="me-4" width="80">
-											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">400</span></h3>
-												<p class="mb-0">Revenue</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="widget-card-1 card">
-									<div class="card-body">
-										<div class="media">
-											<img src="images/food-icon/3.png" alt="" class="me-4" width="80">
-											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0"><?php echo $totalItems;?></span></h3>
-												<p class="mb-0">Items Sold</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="widget-card-1 card">
-									<div class="card-body">
-										<div class="media">
-											<img src="images/food-icon/4.png" alt="" class="me-4" width="80">
-											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0"><?php echo ($objRow2->totalOrders);?></span></h3>
-												<p class="mb-0">Total Orders</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6">
-						<div class="row">
-							<div class="col-xl-12">
-								<div class="card">
-									<div class="card-body">
-										<div id="chart" class="d-inline-block donut-chart-d"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-12">
-								<div class="card">
-									<div class="card-header border-0 d-sm-flex d-block">
-										<div>
-											<h2 class="main-title text-black mb-1">Orders from</h2>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="progress-bar-box">
-											<div class="img-bx me-3">
-												<img src="images/food-icon/8.png" alt="" class="img-fluid">
-											</div>
-											<div class="bar-box d-flex w-100 align-items-center">
-												<h3 class="text-nowrap name mb-0">Dine-in</h3>
-												<div class="progress" style="width: 100%">
-													<div class="progress-bar bg-warning" role="progressbar" style="width: 92%;"></div>
-												</div>
-												<span class="text-end percentage">602 <span>(92%)</span></span>
-											</div>
-										</div>
-										<div class="progress-bar-box">
-											<div class="img-bx me-3">
-												<img src="images/food-icon/9.png" alt="" class="img-fluid">
-											</div>
-											<div class="bar-box d-flex w-100 align-items-center">
-												<h3 class="text-nowrap name mb-0">Takeaway</h3>
-												<div class="progress" style="width: 100%">
-													<div class="progress-bar bg-warning" role="progressbar" style="width: 8%;"></div>
-												</div>
-												<span class="text-end percentage">52 <span>(8%)</span></span>
-											</div>
-										</div>
-										<div class="progress-bar-box">
-											<div class="img-bx me-3">
-												<img src="images/food-icon/10.png" alt="" class="img-fluid">
-											</div>
-											<div class="bar-box d-flex w-100 align-items-center">
-												<h3 class="text-nowrap name mb-0">Online</h3>
-												<div class="progress" style="width: 100%">
-													<div class="progress-bar bg-warning" role="progressbar" style="width: 5%;"></div>
-												</div>
-												<span class="text-end percentage">3.1k <span>(5%)</span></span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6">
-						<div class="row">
-							<div class="col-xl-12">
-								<div class="card">
-									<div class="card-header border-0 d-sm-flex d-block">
-										<div>
-											<h2 class="main-title text-black mb-1">Top Selling items</h2>
-										</div>
-									</div>
-									<div class="card-body pt-3">
-										<div class="media mb-3 pb-3 items-list-2 align-items-center">
-											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic5.jpg" alt="DexignZone"></a>
-											<div class="media-body col-6 px-0">
-												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">Italiano pizza</h3>
-												<span class="font-w500 mb-3">124 times</span>
-											</div>
-											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
-												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
-												<div class="dropdown ms-3 ">
-													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
-														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-													</button>
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="media  mb-3 pb-3 items-list-2 align-items-center">
-											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic4.jpg" alt="DexignZone"></a>
-											<div class="media-body col-6 px-0">
-												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">Cheese Momos</h3>
-												<span class="font-w500 mb-3">116 times</span>
-											</div>
-											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
-												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
-												<div class="dropdown ms-3 ">
-													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
-														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-													</button>
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="media mb-3 pb-3 items-list-2 align-items-center">
-											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic3.jpg" alt="DexignZone"></a>
-											<div class="media-body col-6 px-0">
-												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">French fries</h3>
-												<span class="font-w500 mb-3">200 times</span>
-											</div>
-											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
-												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
-												<div class="dropdown ms-3 ">
-													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
-														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-													</button>
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="media mb-3 pb-3 items-list-2 align-items-center">
-											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic2.jpg" alt="DexignZone"></a>
-											<div class="media-body col-6 px-0">
-												<h3 class="mt-0 mb-3 sub-title">Cheese Sandwich</h3>
-												<span class="font-w500 mb-3">50 times</span>
-											</div>
-											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
-												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
-												<div class="dropdown ms-3 ">
-													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
-														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-													</button>
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
-														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
-        </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-
-        <!--**********************************
-            Footer start
-        ***********************************-->
-		<?php include 'includes/footer.php'; ?>
-
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-		<!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
-
-    </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
-    <script src="vendor/global/global.min.js"></script>
-	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
-	
-	<!-- Counter Up -->
-    <script src="vendor/waypoints/jquery.waypoints.min.js"></script>
-    <script src="vendor/jquery.counterup/jquery.counterup.min.js"></script>	
-	
-	<!-- Apex Chart -->
-	<script src="vendor/apexchart/apexchart.js"></script>
-	
-	<script src="vendor/owl-carousel/owl.carousel.js"></script>
-	<script src="vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js"></script>
-	<!-- Dashboard 1 -->
-	<script src="js/dashboard/dashboard.js"></script>
-    <script src="js/custom.min.js"></script>
-	<script src="js/deznav-init.js"></script>
-	
-</body>
-
-</html>

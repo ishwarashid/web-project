@@ -1,6 +1,11 @@
+let starters = parseInt(document.querySelector(".hid1").value);
+let seafood = parseInt(document.querySelector(".hid2").value);
+let desserts = parseInt(document.querySelector(".hid3").value);
+let drinks = parseInt(document.querySelector(".hid4").value);
+console.log(starters,seafood,desserts,drinks);
+
 (function($) {
     /* "use strict" */
-
 
  var dzChartlist = function(){
 	
@@ -121,9 +126,10 @@
 			});
 		}
 	}
+
 	var donutChart = function(){
 		var options = {
-			series: [26,10,26,9,12,16,32,6],
+			series: [starters, seafood, desserts, drinks],
 			//colors:['#ff5c5a', '#2bc156', '#404a56'],
 			chart: {
 				height: 330,
@@ -134,7 +140,7 @@
 				},
 				
 			},
-			labels: ["Fast Food", "Italian ", "Main Course","Starter ", "Beverages", "Indian ","Dessert ", "Other "],
+			labels: ["Starters ", "Sea Food ","Desserts ", "Drinks "],
 			plotOptions: {
 				pie: {
 					customScale: 1,
@@ -247,3 +253,7 @@
 	});     
 
 })(jQuery);
+
+
+
+

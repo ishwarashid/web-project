@@ -68,7 +68,11 @@
                         </div>
                         <!-- footer-widget-wrap end-->
                         <div class="footer-bottom fl-wrap">
-                            <div class="copyright">&#169; Culinary Cove <?php echo date("Y") ?> . All rights reserved. </div>
+                            <div class="copyright">&#169; Culinary Cove <?php echo date("Y") ?> . All rights reserved.
+                            <br>
+                            Developed By Ishwa under the Supervision of Sir Jamil.
+                            </div>
+                            
                             <div class="to-top"><span>Back To Top </span><i class="fal fa-angle-double-up"></i></div>
                         </div>
                     </div>

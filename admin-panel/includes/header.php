@@ -1,3 +1,6 @@
+<?php include("includes/session.php"); ?>
+<?php include '../database/database-helper.php'; ?>
+
 <header class="site-header mo-left header style-1">
 			<!-- Main Header -->
 			<div class="sticky-header main-bar-wraper navbar-expand-lg">
@@ -17,13 +20,26 @@
 						<div class="extra-nav">
 							<div class="extra-cell">
 								<a href="javascript:void();" class="profile-box">
+								<?php 
+									$ID = $_SESSION['SESSION_ID'];
+                                	$sql = "SELECT * FROM admin WHERE id ='$ID';";
+                                	$result = $conn->query($sql);
+									if ($result->num_rows > 0) {
+										// output data of each row
+										$row = $result->fetch_assoc();
+                            
+                            	?>
 									<div class="header-info">
-										<span>Robertos Jr.</span>
-										<small>Super Admin</small>
+										<span><?php echo $row['fullname']; ?></span>
+										
 									</div>
 									<div class="img-bx">
-										<img src="images/avatar/1.jpg" alt="">
+										<img src="https://cdn-icons-png.flaticon.com/512/219/219969.png" alt="">
 									</div>
+								<?php
+									}
+								?>
+
 								</a>
 							</div>
 						</div>
@@ -40,7 +56,7 @@
 							<div class="logo-header">
 								<img src="images/avatar/1.jpg" alt="">
 							</div>
-							<ul class="nav navbar-nav navbar navbar-left">	
+							<!-- <ul class="nav navbar-nav navbar navbar-left">	
 								<li class=""><a href="front-home.php">
 								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -88,7 +104,7 @@
 									</g>
 								</svg>
 								Check Dashboard</a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>

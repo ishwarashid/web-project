@@ -4,7 +4,12 @@ include ("includes/session.php");
 
 $productId = $_GET["id"];
 $customerId = $_SESSION['SESSION_ID'];
+?>
+<!-- <script>
+  alert("<?php echo $_SESSION['SESSION_ID'] ?>")
+<script> -->
 
+<?php
 
 $sql = "SELECT MAX(order_id) as max_id FROM orders;";
 $result = mysqli_query($conn, $sql);
@@ -38,6 +43,7 @@ if (mysqli_query($conn, $sql1)) {
 ?>
 
   <script>
+    alert("Item Added to Cart");
     location.href = 'menu.php';
   </script>
 

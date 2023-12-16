@@ -89,7 +89,7 @@
                                 <div class="gallery-item <?php echo $row['category'];?>">
                                     <div class="grid-item-holder hov_zoom">
                                         <a href="images/menu/1.jpg" class="box-media-zoom popup-image"><i class="fal fa-search"></i></a>
-                                        <img  src="images/menu/1.jpg" alt="">
+                                        <img  src="./admin-panel/<?php echo $row['image'];?>" alt="">
                                     </div>
                             
                                     <div class="grid-item-details">
@@ -240,7 +240,6 @@
                             <div class="clearfix"></div>
                             <div class="bold-separator bold-separator_dark"><span></span></div>
                             <div class="clearfix"></div>
-                            <a href="#" class="btn  ">Download menu in PDF<i class="fal fa-long-arrow-right"></i></a>                                      
                         </div>
                         <div class="section-bg">
                             <div class="bg"  data-bg="images/bg/dec/section-bg.png"></div>

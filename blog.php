@@ -66,7 +66,7 @@
                                         <div class="post fl-wrap fw-post">
                                             <h2><a href="blog-single.php">The Secret Ingredient</a></h2>
                                             <ul class="blog-title-opt">
-                                                <li><a href="#">12 may 2020</a></li>
+                                                <li><a href="#">12 may 2023</a></li>
                                                 <li> - </li>
                                                 <li><a href="#">Interviews </a></li>
                                                 <li><a href="#">Receipts</a></li>
@@ -93,14 +93,14 @@
                                                 <div class="pr-tags fl-wrap">
                                                     <span>Tags : </span>
                                                     <ul>
-                                                        <li><a href="#">12 may 2020</a></li>
+                                                        <li><a href="#">12 may 2023</a></li>
                                                         <li> - </li>
                                                         <li><a href="#">Interviews </a></li>
                                                         <li><a href="#">Receipts</a></li>
                                                     </ul>
                                                 </div>
                                                 <p>
-                                                    Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
+                                                The "Our Journal" page is a space where we share our passion, stories, and the vibrant tapestry of experiences that define Culinary Cove. Stay tuned for more tales from our kitchen and beyond.
                                                 </p>
                                                 <a href="blog-single.php" class="btn">Read more <i class="fal fa-long-arrow-right"></i></a>
                                                 <ul class="post-counter">
@@ -114,7 +114,7 @@
                                         <div class="post fl-wrap fw-post">
                                             <h2><a href="blog-single.php">Pasta Receipt</a></h2>
                                             <ul class="blog-title-opt">
-                                                <li><a href="#">12 may 2020</a></li>
+                                                <li><a href="#">12 may 2023</a></li>
                                                 <li> - </li>
                                                 <li><a href="#">Interviews </a></li>
                                                 <li><a href="#">Receipts</a></li>
@@ -134,7 +134,7 @@
                                                     </ul>
                                                 </div>
                                                 <p>
-                                                    Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
+                                                At Culinary Cove, pasta isn't just a dish; it's a work of art. Dive into the rich history and artistry behind our pasta dishes. From the traditional techniques passed down generations to the innovative twists that give each pasta creation a unique flavor profile, discover the secrets behind crafting the perfect pasta at Culinary Cove.
                                                 </p>
                                                 <a href="blog-single.php" class="btn">Read more <i class="fal fa-long-arrow-right"></i></a>
                                                 <ul class="post-counter">
@@ -148,7 +148,7 @@
                                         <div class="post fl-wrap fw-post">
                                             <h2><a href="blog-single.php">Jazz Band Bingo</a></h2>
                                             <ul class="blog-title-opt">
-                                                <li><a href="#">12 may 2020</a></li>
+                                                <li><a href="#">12 may 2023</a></li>
                                                 <li> - </li>
                                                 <li><a href="#">Interviews </a></li>
                                                 <li><a href="#">Events</a></li>
@@ -168,7 +168,7 @@
                                                     </ul>
                                                 </div>
                                                 <p>
-                                                    Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
+                                                Experience the rhythm of delectable dining at Culinary Cove's Jazz Band Bingo nights. Join us for evenings filled with soulful melodies, delectable bites, and the thrill of a bingo game. It's a fusion of music, laughter, and exquisite cuisine – a celebration of the finer things in life.
                                                 </p>
                                                 <a href="blog-single.php" class="btn">Read more <i class="fal fa-long-arrow-right"></i></a>
                                                 <ul class="post-counter">
@@ -182,7 +182,7 @@
                                         <div class="post fl-wrap fw-post">
                                             <h2><a href="blog-single.php">Burger Big Daddy Receipt</a></h2>
                                             <ul class="blog-title-opt">
-                                                <li><a href="#">12 may 2020</a></li>
+                                                <li><a href="#">12 may 2023</a></li>
                                                 <li> - </li>
                                                 <li><a href="#">Interviews </a></li>
                                                 <li><a href="#">Receipts</a></li>
@@ -202,7 +202,7 @@
                                                     </ul>
                                                 </div>
                                                 <p>
-                                                    Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
+                                                What makes our burgers stand out? It's not just the ingredients; it's the dedication to perfection. From juicy patties to artisanal buns and the freshest toppings, explore the journey behind our iconic Burger Big Daddy. Uncover the flavors, techniques, and stories that make this burger an unforgettable indulgence.
                                                 </p>
                                                 <a href="blog-single.php" class="btn">Read more <i class="fal fa-long-arrow-right"></i></a>
                                                 <ul class="post-counter">
@@ -258,7 +258,7 @@
                                                         <div class="recent-post-content">
                                                             <h4><a href="#">Snowy Mountains Trip</a></h4>
                                                             <div class="recent-post-opt">
-                                                                <span class="post-date">3 May 2016</span> 
+                                                                <span class="post-date">3 May 2023</span> 
                                                                 <a href="#" class="post-comments">0 Comments</a> 
                                                             </div>
                                                         </div>
@@ -268,7 +268,7 @@
                                                         <div class="recent-post-content">
                                                             <h4><a href="#">Snowy Mountains Trip</a></h4>
                                                             <div class="recent-post-opt">
-                                                                <span class="post-date">3 May 2016</span> 
+                                                                <span class="post-date">3 May 2023</span> 
                                                                 <a href="#" class="post-comments">0 Comments</a> 
                                                             </div>
                                                         </div>
@@ -278,7 +278,7 @@
                                                         <div class="recent-post-content">
                                                             <h4><a href="#">Snowy Mountains Trip</a></h4>
                                                             <div class="recent-post-opt">
-                                                                <span class="post-date">3 May 2016</span> 
+                                                                <span class="post-date">3 May 2023</span> 
                                                                 <a href="#" class="post-comments">0 Comments</a> 
                                                             </div>
                                                         </div>

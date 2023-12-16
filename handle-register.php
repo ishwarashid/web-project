@@ -8,12 +8,12 @@
         else{
             $sql = "SELECT MAX(customer_id) as max_id FROM customers;";
             $result = mysqli_query($conn, $sql);
-            if(mysqli_num_rows($result)==0){
-                $id = 1;
-            }
-            else{
+            if(mysqli_num_rows($result)>0){
                 $row = mysqli_fetch_assoc($result);
                 $id = $row['max_id'] + 1;
+            }
+            else {
+                $id = 1;
             }
             $name = mysqli_real_escape_string($conn, $_POST['name']);
             $username = mysqli_real_escape_string($conn, $_POST['email']);
@@ -26,13 +26,13 @@
                 die;
             }
 
-            $sql = "INSERT INTO customers VALUES('$id', '$name', '$username', '$password');";
+            $sql = "INSERT INTO customers (customer_id, name, username, password) VALUES ('$id', '$name', '$username', '$password');";
             $result = mysqli_query($conn,$sql) or die("Query Failed");
             if ($result) {
                 session_start();
-                $_SESSION['USERNAME'] = '$username';
-                $_SESSION['NAME'] = '$name';
-                $_SESSION['SESSION_ID'] = '$id';
+                $_SESSION['USERNAME'] = $username;
+                $_SESSION['NAME'] = $name;
+                $_SESSION['SESSION_ID'] = $id;
                 header("Location: index.php");
             }
         }

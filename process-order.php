@@ -12,6 +12,4 @@ if (mysqli_query($conn, $sql)) {
   echo "Error updating record: " . mysqli_error($conn);
 }
 
-
-
 ?>

@@ -68,11 +68,26 @@
                                         <div class="dots-separator fl-wrap"><span></span></div>
                                     </div>
                                     <div class="text-block ">
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
-                                            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
+                                        <p>
+                                        Welcome to Culinary Cove – where passion meets palate, and every dish tells a story.
+                                        </p>    
+                                        <p>
+                                        Our journey began with a simple belief: food is more than sustenance; it's a celebration of flavors, culture, and community. Nestled in Lahore, Culinary Cove is more than just a restaurant; it's a haven for culinary enthusiasts, a place where exquisite cuisine and heartfelt hospitality intertwine. </p>
+
+                                        <p>At Culinary Cove, we take pride in curating a menu that harmonizes traditional recipes with modern gastronomy. Each dish is a testament to our dedication to sourcing the freshest, locally-sourced ingredients, ensuring that every bite embodies freshness and quality.
+
+                                        Behind every recipe is a team of passionate chefs, artisans of flavor who meticulously craft each dish to tantalize your taste buds. Their dedication to culinary excellence shines through in every plate that leaves our kitchen.
+
                                         </p>
-                                        <p> Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
-                                        <a href="about.php" class="btn fl-btn">Explore Our Menu<i class="fal fa-long-arrow-right"></i></a>
+
+                                        <p>Beyond the food and ambiance, our philosophy centers on community. We cherish the relationships we've built with our patrons, local suppliers, and the neighborhood. Your support fuels our passion and drives us to continually innovate and elevate your dining experience.
+
+                                        As we continue on this gastronomic journey, we invite you to embark with us. Join us at Culinary Cove, where every meal is an invitation to savor life's beautiful moments through the joy of food. </p>
+
+                                        </p>
+                                        <p>Thank you for being a part of our story.</p>
+</p>
+                                        <a href="menu.php" class="btn fl-btn">Explore Our Menu<i class="fal fa-long-arrow-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

@@ -41,8 +41,13 @@
                 <div class="content">
                     <section class=" no-padding dark-bg hidden-section">
                         <div class="map-container">
-                            <div id="singleMap"></div>
+                            <div id="singleMap">
+                                
+                            <iframe width="100%" height="100%" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d54450.04818372682!2d74.441384!3d31.4656646!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391909965d7dbc43%3A0x20587eba0002ce84!2sCaprinos%20Pizza%20DHA%20Raya%2C%20Lahore!5e0!3m2!1sen!2s!4v1702124481774!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                             <div class="scrollContorl"></div>
+                            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d54450.04818372682!2d74.441384!3d31.4656646!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391909965d7dbc43%3A0x20587eba0002ce84!2sCaprinos%20Pizza%20DHA%20Raya%2C%20Lahore!5e0!3m2!1sen!2s!4v1702124481774!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+                            
                         </div>
                         <!-- map-view-wrap --> 
                         <div class="map-view-wrap">
@@ -80,7 +85,7 @@
                                         <div class="dots-separator fl-wrap"><span></span></div>
                                     </div>
                                     <div class="text-block ">
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
+                                        <p>Have a question, a suggestion, or just want to say hello? We'd love to hear from you! There are various ways to reach out to u
                                         </p>
                                     </div>
                                     <div class="contactform-wrap">
@@ -146,7 +151,7 @@
                                             </div>
                                             <div class="clearfix"></div>
                                             <div class="bold-separator"><span></span></div>
-                                            <div class="big-number"><a href="#">+7(111)123456789</a></div>
+                                            <div class="big-number"><a href="#"><?php echo $_GLOBAL["PHONE"]; ?></a></div>
                                         </div>
                                         <div class="illustration_bg">
                                             <div class="bg"  data-bg="images/bg/dec/6.png"></div>
