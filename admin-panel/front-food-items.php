@@ -9,15 +9,8 @@ if(isset($_REQUEST['BtnSubmit'])){
 		$price = mysqli_real_escape_string($conn,$_POST['itemPrice']);
 		$desc = mysqli_real_escape_string($conn,$_POST['itemDesc']);
 		$category = mysqli_real_escape_string($conn,$_POST['category']);
-		$img = $_POST['itemImg1'];
+		$img = $_FILES["itemImg1"]["name"] ;
 		$PID = mysqli_real_escape_string($conn,$_POST['pid']);
-
-?>
-<script>
-	alert("<?php echo $img; ?>")
-</script>
-<?php
-
 
 		// $sql = "SELECT * FROM products";
 		// $result = mysqli_query($conn, $sql);

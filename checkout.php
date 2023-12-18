@@ -120,7 +120,7 @@
                                                 </div>
                                                 <!-- <textarea name="comments"  id="comments" cols="30" rows="3" placeholder="Addtional Notes"></textarea> -->
                                                 <div class="clearfix"></div>
-                                                <button type="submit" class="btn color-bg">Confirm and Pay<i class="fal fa-long-arrow-right"></i></button>
+                                                <button type="submit" class="btn color-bg">Confirm Order<i class="fal fa-long-arrow-right"></i></button>
                                             </fieldset>
                                         </form>
                                         <?php

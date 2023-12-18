@@ -8,7 +8,7 @@
 					<div class="container-fluid clearfix">
 						<!-- Website Logo -->
 						<div class="logo-header mostion logo-dark">
-							<a href="front-dashboard.php"><img src="../images/logo1.png" style="width: 200px" alt=""></a>
+							<a href="front-dashboard.php"><img src="../images/logo1.png" style="width: 200px;filter: invert(12%) sepia(3%) saturate(0%) hue-rotate(87deg) brightness(103%) contrast(91%);" alt=""></a>
 						</div>
 						<!-- Nav Toggle Button -->
 						<button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

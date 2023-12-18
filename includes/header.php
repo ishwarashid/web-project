@@ -85,7 +85,7 @@ include 'variables.php';
                             
                                             ?>
                                                 <li class="clearfix">
-                                                    <a href="#"  class="widget-posts-img"><img src="<?php echo $row['image'];?>" class="respimg" alt=""></a>
+                                                    <a href="#"  class="widget-posts-img"><img src="./admin-panel/<?php echo $row['image'];?>" class="respimg" alt=""></a>
                                                     <div class="widget-posts-descr">
                                                         <a href="#" title=""><?php echo $row['product_name'];?></a>
                                                         <div class="widget-posts-descr_calc clearfix"><?php echo $row['quantity'];?> <span>x</span>Rs. <?php echo $row['product_price'];?></div>

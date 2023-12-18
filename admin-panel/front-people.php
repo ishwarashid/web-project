@@ -1,6 +1,40 @@
 <?php include("includes/session.php"); ?>
 <?php include '../database/database-helper.php'; ?>
 
+<?php
+
+if(isset($_REQUEST['BtnSubmit'])){
+
+		$name = mysqli_real_escape_string($conn,$_POST['name']);
+		$username = mysqli_real_escape_string($conn,$_POST['username']);
+		$contact = mysqli_real_escape_string($conn,$_POST['phone']);
+		$address = mysqli_real_escape_string($conn,$_POST['address']);
+		$CID = mysqli_real_escape_string($conn,$_POST['cid']);
+
+
+		$UpdateQuery = "UPDATE customers SET name = '$name', username = '$username', password = '$password', contact = '$contact', address='$address' WHERE customer_id = '$CID'";
+		$Result = mysqli_query($conn, $UpdateQuery);
+		if ($Result) {
+?>
+    <script>
+        alert("Successfully Updated");
+        window.location.href= "front-people.php";
+
+    </script>
+<?php 
+		} else {
+?>
+	<script>
+        alert("failed");
+        window.location.href= "front-people.php";
+
+    </script>
+<?php
+        	
+    	}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,9 +140,9 @@
 									<tr>
 										<td><strong><?php echo $row['name'];?></strong></td>
 										<td><?php echo $row['contact'];?></td>
-										<td><?php echo $row['address'];?></td>
 										<td><?php echo $row['username'];?></td>
-										<td><?php echo $row['lastupdated'];?></td>
+										<td><?php echo $row['address'];?></td>
+										<td><?php echo $row['createdAt'];?></td>
 										<td>
 											<div class="action-buttons d-flex justify-content-end">
 												<a href="handle-delete-customer.php?id=<?php echo $row['customer_id'];?>" class="btn btn-danger light me-2">
@@ -120,7 +154,8 @@
 														</g>
 													</svg>
 												</a>
-												<a href="javascript:void(0);" class="btn btn-primary light ">
+												<a href="javascript:void(0);" class="btn btn-primary btn-edit light me-2" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $row['customer_id']?>">
+
 													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
 														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 															<rect x="0" y="0" width="24" height="24"/>
@@ -130,7 +165,56 @@
 													</svg>
 												</a>
 											</div>
-										</td>												
+										</td>
+										<div class="modal fade" id="exampleModal<?php echo $row['customer_id']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog modal-dialog-center">
+												<div class="modal-content">
+													<form action="" method="post">
+
+														<div class="modal-header">
+															<h1 class="modal-title fs-5" id="exampleModalLabel">Add New Customers</h1>
+															<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+														</div>
+														<div class="modal-body">
+														<div class="row">
+																<div class="col-xl-6">
+																	<div class="mb-3">
+																	<label for="exampleFormControlInput1" class="form-label">Full Name</label>
+																	<input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="<?php echo $row['name']?>" Required>
+																	</div>
+																	<div class="mb-3">
+																	<label for="exampleFormControlInput2" class="form-label">Phone Number</label>
+																	<input type="tel" class="form-control" id="exampleFormControlInput2" name="phone" value="<?php echo $row['contact']?>">
+																	</div>
+																</div>
+																<div class="col-xl-6">
+																	<div class="mb-3">
+																	<label for="exampleFormControlInput3" class="form-label">Email</label>
+																	<input type="email" class="form-control" id="exampleFormControlInput3" name="username" value="<?php echo $row['username']?>" Required>
+																	</div>
+																	<div class="mb-3">
+																	<label for="exampleFormControlInput4" class="form-label">Address</label>
+																	<input type="text" class="form-control" id="exampleFormControlInput4" name="address" value="<?php echo $row['address']?>">
+																	</div>
+																	<input type="hidden" name="cid" value="<?php echo $row['customer_id']; ?>">
+																</div>
+																<!-- <div class="col-xl-6">
+																	<label for="exampleFormControlInput3" class="form-label">Status</label>
+																	<select class="default-select" aria-label="Default select example" name="status">
+																	<option selected value="1">Active</option>
+																	<option value="0">Dead</option>
+																	</select>
+																</div> -->
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+															<button type="submit" class="btn btn-primary" name="BtnSubmit">Save changes</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>												
 									</tr>
 									<?php
 
@@ -168,21 +252,25 @@
 							<div class="col-xl-6">
 								<div class="mb-3">
 								<label for="exampleFormControlInput1" class="form-label">Full Name</label>
-								<input type="text" class="form-control" id="exampleFormControlInput1" name="name">
+								<input type="text" class="form-control" id="exampleFormControlInput1" name="name" Required>
 								</div>
 								<div class="mb-3">
-								<label for="exampleFormControlInput1" class="form-label">Password</label>
-								<input type="password" class="form-control" id="exampleFormControlInput2" name="password">
+								<label for="exampleFormControlInput2" class="form-label">Password</label>
+								<input type="password" class="form-control" id="exampleFormControlInput2" name="password" Required>
+								</div>
+								<div class="mb-3">
+								<label for="exampleFormControlInput3" class="form-label">Address</label>
+								<textarea class="form-control-lg" id="exampleFormControlInput3" name="address" cols="46"></textarea>
 								</div>
 							</div>
 							<div class="col-xl-6">
 								<div class="mb-3">
-								<label for="exampleFormControlInput1" class="form-label">Username</label>
-								<input type="email" class="form-control" id="exampleFormControlInput1" name="username">
+								<label for="exampleFormControlInput4" class="form-label">Username</label>
+								<input type="email" class="form-control" id="exampleFormControlInput4" name="username" Required>
 								</div>
 								<div class="mb-3">
-								<label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-								<input type="tel" class="form-control" id="exampleFormControlInput2" name="phone">
+								<label for="exampleFormControlInput5" class="form-label">Phone Number</label>
+								<input type="tel" class="form-control" id="exampleFormControlInput5" name="phone">
 								</div>
 							</div>
 							<!-- <div class="col-xl-6">

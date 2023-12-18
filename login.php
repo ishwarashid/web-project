@@ -64,7 +64,8 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" name="login" value="login" class="btn btn-primary btn-block" style="background-color:#292929; border: none;">Sign Me In</button>
+                                        <!-- style="background-color:#292929; border: none;" -->
+                                            <button type="submit" name="login" value="login" class="btn btn-primary btn-block" >Sign Me In</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">

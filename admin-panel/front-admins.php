@@ -178,12 +178,12 @@ if(isset($_REQUEST['BtnSubmit'])){
 											</a>	
 											</div>
 										</td>
-										<div class="modal fade" id="exampleModal<?php echo $row['id']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal fade" id="exampleModal<?php echo $row['id']?>" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">
 											<div class="modal-dialog modal-dialog-center">
 												<div class="modal-content">				
 													<form action="" method="post">
 														<div class="modal-header">
-															<h1 class="modal-title fs-5" id="exampleModalLabel2">Edit Admin</h1>
+															<h1 class="modal-title fs-5" id="exampleModalLabel">Edit Admin</h1>
 															<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 														</div>
 														<div class="modal-body">

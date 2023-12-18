@@ -5,6 +5,8 @@ $name = $_POST["name"];
 $password = $_POST["password"];
 $username = $_POST["username"];
 $phone = $_POST["phone"];
+$address = $_POST["address"];
+
 // $status = $_POST["status"];
 // intval()
 
@@ -14,7 +16,7 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $customerID = $row["max"] + 1;
 
-$sql = "INSERT INTO customers (customer_id, name, contact, username, password) VALUES ('$customerID', '$name', '$phone', '$username', '$password')";
+$sql = "INSERT INTO customers (customer_id, name, contact, username, password, address) VALUES ('$customerID', '$name', '$phone', '$username', '$password', '$address')";
 
 if ($conn->query($sql) === TRUE) {
 ?>

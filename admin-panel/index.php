@@ -1,4 +1,4 @@
-<?php include("includes/session.php"); ?>
+
 <?php include '../database/database-helper.php'; ?>
 <?php
 	$sql = "SELECT * FROM products";
@@ -170,7 +170,7 @@
 										<div class="media">
 											<img src="images/food-icon/1.png" alt="" class="me-4" width="80">
 											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0"><?php echo ($objRow1->totalMenus);?></span></h3>
+												<h3 class="mb-sm-3 mb-2" style="color: #292929"><span class="counter ms-0"><?php echo ($objRow1->totalMenus);?></span></h3>
 												<p class="mb-0">Total Menus</p>
 											</div>
 										</div>
@@ -183,7 +183,7 @@
 										<div class="media">
 											<img src="images/food-icon/2.png" alt="" class="me-4" width="80">
 											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0">400</span></h3>
+												<h3 class="mb-sm-3 mb-2" style="color: #292929"><span class="counter ms-0">400</span></h3>
 												<p class="mb-0">Revenue</p>
 											</div>
 										</div>
@@ -196,7 +196,7 @@
 										<div class="media">
 											<img src="images/food-icon/3.png" alt="" class="me-4" width="80">
 											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0"><?php echo $totalItems;?></span></h3>
+												<h3 class="mb-sm-3 mb-2" style="color: #292929"><span class="counter ms-0"><?php echo $totalItems;?></span></h3>
 												<p class="mb-0">Items Sold</p>
 											</div>
 										</div>
@@ -209,7 +209,7 @@
 										<div class="media">
 											<img src="images/food-icon/4.png" alt="" class="me-4" width="80">
 											<div class="media-body">
-												<h3 class="mb-sm-3 mb-2 text-black"><span class="counter ms-0"><?php echo ($objRow2->totalOrders);?></span></h3>
+												<h3 class="mb-sm-3 mb-2" style="color: #292929"><span class="counter ms-0"><?php echo ($objRow2->totalOrders);?></span></h3>
 												<p class="mb-0">Total Orders</p>
 											</div>
 										</div>
@@ -231,7 +231,7 @@
 								<div class="card">
 									<div class="card-header border-0 d-sm-flex d-block">
 										<div>
-											<h2 class="main-title text-black mb-1">Orders from</h2>
+											<h2 class="main-title mb-1" style="color: #292929">Orders from</h2>
 										</div>
 									</div>
 									<div class="card-body">
@@ -282,19 +282,29 @@
 								<div class="card">
 									<div class="card-header border-0 d-sm-flex d-block">
 										<div>
-											<h2 class="main-title text-black mb-1">Top Selling items</h2>
+											<h2 class="main-title mb-1" style="color: #292929">Top Selling items</h2>
 										</div>
 									</div>
+									
 									<div class="card-body pt-3">
+										<?php
+											$sql = "SELECT * FROM products LIMIT 5";
+											$result = mysqli_query($conn, $sql);
+											
+											if (mysqli_num_rows($result) > 0) {
+											// output data of each row
+												while($row = mysqli_fetch_assoc($result)) {
+
+										?>
 										<div class="media mb-3 pb-3 items-list-2 align-items-center">
-											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic5.jpg" alt="DexignZone"></a>
+											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="<?php echo $row["image"] ?>" alt="DexignZone"></a>
 											<div class="media-body col-6 px-0">
-												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">Italiano pizza</h3>
-												<span class="font-w500 mb-3">124 times</span>
+												<h3 class="mt-2 mb-2 sub-title"><?php echo $row["product_name"] ?></h3>
+												
 											</div>
 											<div class="media-footer align-self-center ms-auto d-block align-items-center d-sm-flex">
-												<h3	class="mb-0 font-w600 text-secondary">$12.56</h3>
-												<div class="dropdown ms-3 ">
+												<h3	class="mb-0 font-w600 text-secondary">Rs. <?php echo $row["product_price"] ?></h3>
+												<!-- <div class="dropdown ms-3 ">
 													<button type="button" class="btn btn-secondary sharp tp-btn-light " data-bs-toggle="dropdown">
 														<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
 													</button>
@@ -302,10 +312,14 @@
 														<a class="dropdown-item" href="javascript:void(0);">Edit</a>
 														<a class="dropdown-item" href="javascript:void(0);">Delete</a>
 													</div>
-												</div>
+												</div> -->
 											</div>
 										</div>
-										<div class="media  mb-3 pb-3 items-list-2 align-items-center">
+										<?php
+												}
+											}
+										?>
+										<!-- <div class="media mb-3 pb-3 items-list-2 align-items-center">
 											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic4.jpg" alt="DexignZone"></a>
 											<div class="media-body col-6 px-0">
 												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">Cheese Momos</h3>
@@ -323,8 +337,8 @@
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="media mb-3 pb-3 items-list-2 align-items-center">
+										</div> -->
+										<!-- <div class="media mb-3 pb-3 items-list-2 align-items-center">
 											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic3.jpg" alt="DexignZone"></a>
 											<div class="media-body col-6 px-0">
 												<h3 class="mt-0 mb-sm-3 mb-2 sub-title">French fries</h3>
@@ -342,8 +356,8 @@
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="media mb-3 pb-3 items-list-2 align-items-center">
+										</div> -->
+										<!-- <div class="media mb-3 pb-3 items-list-2 align-items-center">
 											<a href="javascript:void(0);"><img class="img-fluid rounded me-3" width="85" src="images/dish/pic2.jpg" alt="DexignZone"></a>
 											<div class="media-body col-6 px-0">
 												<h3 class="mt-0 mb-3 sub-title">Cheese Sandwich</h3>
@@ -361,7 +375,7 @@
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>

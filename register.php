@@ -59,7 +59,7 @@
                                             <input type="password" class="form-control" placeholder="******" name="password">
                                         </div>
                                         <div class="text-center mt-4">
-                                            <button type="submit" name="signup" class="btn btn-primary btn-block" class="btn btn-primary btn-block" style="background-color:#292929; border: none;">Sign me up</button>
+                                            <button type="submit" name="signup" class="btn btn-primary btn-block" class="btn btn-primary btn-block">Sign me up</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">

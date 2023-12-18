@@ -43,18 +43,20 @@
 									<div class="text-center mb-3">
 										<a href="https://davur.dexignzone.com/xhtml/page-error-404.html"><img src="https://davur.dexignzone.com/xhtml/page-error-404.html" alt=""></a>
 									</div>
-                                    <h4 class="text-center mb-4" style="color:#292929; font-weight: bold;">Sign in your account</h4>
+                                    <h2 class="text-center mb-5" style="color:#292929;">Admin Login Page</h4>
+
+                                    <!-- <h4 class="text-center mb-4" style="color:#292929; font-weight: bold;">Sign in your account</h4> -->
                                     <form action="handle-login.php" method="post">
-                                        <div class="form-group">
-                                            <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" name="username" class="form-control">
+                                        <div class="form-group mb-5">
+                                            <label class="mb-3"><strong>Email</strong></label>
+                                            <input type="email" name="username" class="form-control" Required>
                                         </div>
                                         <div class="form-group">
-                                            <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" name="password" class="form-control">
+                                            <label class="mb-3"><strong>Password</strong></label>
+                                            <input type="password" name="password" class="form-control" Required>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" name="login" value="login" class="btn btn-primary btn-block" style="background-color:#292929; border: none;">Sign Me In</button>
+                                            <button type="submit" name="login" value="login" class="btn btn-primary btn-block mt-5">Sign Me In</button>
                                         </div>
                                     </form>
                                 </div>

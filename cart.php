@@ -92,7 +92,7 @@
                                             ?>
                                             <tr>
                                                 <td class="hidden-xs">
-                                                    <a href="#"><img src="<?php echo $row['image'];?>" alt="" class="respimg"></a>
+                                                    <a href="#"><img src="./admin-panel/<?php echo $row['image'];?>" alt="" class="respimg"></a>
                                                 </td>
                                                 <td>
                                                     <h5 class="product-name"><?php echo $row['product_name'];?></h5>
@@ -161,11 +161,11 @@
                                         </tbody>
                                     </table>
                                     <!-- COUPON -->
-                                    <div class="coupon-holder">
+                                    <!-- <div class="coupon-holder">
                                         <input type="text" name="cartcoupon" placeholder="Coupon code">
                                         <button type="submit" class="btn-a">Apply</button>
-                                        <!-- <button type="submit" class="pull-right btn-uc">Update Cart</button> -->
-                                    </div>
+                                        <button type="submit" class="pull-right btn-uc">Update Cart</button>
+                                    </div> -->
                                     <!-- /COUPON -->                                     
                                 </div>
                                 <div class="col-md-4">
@@ -188,7 +188,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <button type="submit" class="cart-totals_btn color-bg"><a href="checkout.php" style="text-decoration: none;">Proceed to Checkout</a></button>
+                                        <button type="submit" class="cart-totals_btn color-bg"><a href="checkout.php" style="text-decoration: none; display: block; width: 100%;">Proceed to Checkout</a></button>
                                     </div>
                                     <!-- /CART TOTALS  -->                              
                                 </div>

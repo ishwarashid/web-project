@@ -97,7 +97,7 @@
                                         <p><?php echo $row['description'];?></p>
                                         <div class="grid-item_price">
                                             <span>Rs. <?php echo $row['product_price'];?></span>
-                                            <div class="add_cart"><a href="handle-cart.php?id=<?php echo $row['product_id'];?>" style="text-decoration: none">Add To Cart</a></div>
+                                            <div class="add_cart"><a href="handle-cart.php?id=<?php echo $row['product_id'];?>" style="text-decoration: none; display: block; width: 100%;">Add To Cart</a></div>
                                         </div>
                                     </div>
                                 </div>
